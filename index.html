@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-content="pageTitle">اسمك | مخرج إبداعي</title>
+<meta name="description" data-content="pageDescription" content="مخرج إبداعي متخصص في صناعة المحتوى المرئي. عدّل هذا النص من ملف content.js">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- شريط تايم كود علوي (زخرفة موحية بمونتاج الفيديو) -->
+<div class="timecode-strip" aria-hidden="true">
+  <div class="timecode-strip__track"></div>
+</div>
+
+<!-- ===================== الهيدر ===================== -->
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a href="#top" class="logo">
+      <img src="images/logo.png" alt="سعيد ناصر" class="logo-img" data-content-attr="fullName:alt">
+    </a>
+
+    <nav class="nav" id="nav">
+      <a href="#top">الرئيسية</a>
+      <a href="#about">نبذة</a>
+      <a href="#services">الخدمات</a>
+      <a href="#work">الأعمال</a>
+      <a href="#clients">العملاء</a>
+      <a href="#contact" class="nav__cta">تواصل معي</a>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-label="القائمة" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+<!-- ===================== الهيرو ===================== -->
+<section class="hero" id="top">
+  <div class="container hero__inner">
+
+    <div class="hero__text">
+      <span class="badge" data-content="experienceBadge">+10 سنوات خبرة</span>
+
+      <h1 class="hero__title">
+        مرحباً، أنا <span class="accent" data-content="fullName">اسمك الكامل</span>
+      </h1>
+
+      <p class="hero__role">
+        <span id="roleTyper" class="role-typer"></span><span class="role-cursor">|</span>
+      </p>
+
+      <p class="hero__bio" data-content="bio">
+        اكتب هنا نبذة قصيرة عن خبرتك ومجال تخصصك. هذا النص Placeholder، عدّله من ملف content.js دون الحاجة لمس تصميم الصفحة.
+      </p>
+
+      <div class="hero__actions">
+        <a href="#work" class="btn btn--primary">
+          <span>شاهد أعمالي</span>
+          <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M20 4v16l-16-8z"/></svg>
+        </a>
+        <a href="#contact" class="btn btn--ghost">تواصل معي</a>
+      </div>
+    </div>
+
+    <div class="hero__media">
+      <div class="hero__frame">
+        <img src="images/avatar-placeholder.svg" alt="صورتك الشخصية" data-content-attr="avatarSrc:src">
+        <span class="hero__rec">REC ●</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- شريط الإحصائيات بأسلوب "تايم كود" -->
+  <div class="stats-bar">
+    <div class="container stats-bar__inner" id="statsGrid">
+      <!-- تُملأ ديناميكياً من content.js -->
+    </div>
+  </div>
+
+  <!-- شريط الدول / الأسواق -->
+  <div class="markets">
+    <div class="container">
+      <p class="markets__label">أسواق اشتغلت فيها</p>
+      <div class="markets__row" id="marketsRow"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== نبذة ===================== -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="section__head">
+      <span class="eyebrow">من أنا</span>
+      <h2>نبذة عني</h2>
+    </div>
+    <p class="about__text" data-content="aboutText">
+      هذه فقرة Placeholder لشرح مشوارك المهني، أهم إنجازاتك، وأسلوبك في العمل. عدّلها من content.js لتحكي قصتك الحقيقية.
+    </p>
+  </div>
+</section>
+
+<!-- ===================== الخدمات ===================== -->
+<section class="section section--alt" id="services">
+  <div class="container">
+    <div class="section__head">
+      <span class="eyebrow">ماذا أقدم؟</span>
+      <h2>الخدمات</h2>
+      <p class="section__desc" data-content="servicesIntro">
+        نبذة قصيرة عن نطاق خدماتك تُكتب هنا وتُعدّل من content.js.
+      </p>
+    </div>
+    <div class="services-grid" id="servicesGrid">
+      <!-- تُملأ ديناميكياً من content.js -->
+    </div>
+  </div>
+</section>
+
+<!-- ===================== الأعمال ===================== -->
+<section class="section" id="work">
+  <div class="container">
+    <div class="section__head">
+      <span class="eyebrow">أعمال مميزة</span>
+      <h2>شاهد أعمالي</h2>
+    </div>
+    <div class="work-grid" id="workGrid">
+      <!-- تُملأ ديناميكياً من content.js -->
+    </div>
+  </div>
+</section>
+
+<!-- ===================== العملاء ===================== -->
+<section class="section section--alt" id="clients">
+  <div class="container">
+    <div class="section__head">
+      <span class="eyebrow">شركاء النجاح</span>
+      <h2>تثق بنا كبرى الجهات</h2>
+    </div>
+  </div>
+  <div class="clients-marquee">
+    <div class="clients-marquee__track" id="clientsTrack">
+      <!-- تُملأ ديناميكياً من content.js (مرتين للتكرار السلس) -->
+    </div>
+  </div>
+</section>
+
+<!-- ===================== دعوة للعمل ===================== -->
+<section class="section cta" id="contact">
+  <div class="container cta__grid">
+    <div class="cta__card">
+      <span class="cta__icon">🎓</span>
+      <h3 data-content="ctaCoursesTitle">كورساتي</h3>
+      <p data-content="ctaCoursesText">اكتب هنا وصف قصير لكورساتك أو محتواك التعليمي.</p>
+      <a href="#" class="btn btn--ghost" data-content-attr="ctaCoursesLink:href">تصفح الكورسات</a>
+    </div>
+    <div class="cta__card cta__card--highlight">
+      <span class="cta__icon">💼</span>
+      <h3 data-content="ctaHireTitle">وظفني</h3>
+      <p data-content="ctaHireText">عندك مشروع؟ لنتحدث ونحوّله إلى عمل احترافي.</p>
+      <a href="#" class="btn btn--primary" data-content-attr="whatsappLink:href" target="_blank" rel="noopener">تواصل معي</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===================== الفوتر ===================== -->
+<footer class="footer">
+  <div class="container footer__grid">
+
+    <div class="footer__about">
+      <img src="images/logo.png" alt="سعيد ناصر" class="logo-img" data-content-attr="fullName:alt">
+      <p data-content="footerTagline">وصف قصير عنك يظهر في الفوتر، عدّله من content.js.</p>
+      <div class="socials" id="socialsRow"></div>
+    </div>
+
+    <div class="footer__col">
+      <h4>الصفحات</h4>
+      <ul>
+        <li><a href="#top">الرئيسية</a></li>
+        <li><a href="#about">نبذة</a></li>
+        <li><a href="#work">معرض الأعمال</a></li>
+        <li><a href="#services">الخدمات</a></li>
+        <li><a href="#contact">تواصل</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h4>تواصل معي</h4>
+      <ul>
+        <li><a data-content="phoneDisplay" data-content-attr="whatsappLink:href" href="#">+20 000 000 0000</a></li>
+        <li><a data-content="email" data-content-attr="emailLink:href" href="#">example@email.com</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="container footer__bottom">
+    <p>© <span id="year"></span> <span data-content="fullName">اسمك</span>. جميع الحقوق محفوظة</p>
+  </div>
+</footer>
+
+<script src="js/content.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

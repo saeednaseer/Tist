@@ -49,7 +49,7 @@ const siteContent = {
   // لون التدرّج يتحكم في خلفية الصورة المصغّرة (يُستخدم فقط إن لم تتوفر صورة مصغّرة حقيقية)
   // videoLink: ضع هنا رابط الفيديو الفعلي (يوتيوب، تيك توك، إلخ) — الكرت كامل يصبح قابل للنقر ويشغّل الفيديو داخل الموقع
   work: [
-    { category: "drone",           code: "00:24", title: "تصوير عقاري بالدرون",  desc: "توثيق جوي لمشروع سكني.",              gradient: "linear-gradient(135deg,#9F1F63,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
+    { category: "drone",           code: "00:24", title: "تصوير عقاري بالدرون",  desc: "توثيق جوي لمشروع سكني.",              gradient: "linear-gradient(135deg,#9F1F63,#0E0E10)", videoLink: "https://youtu.be/BVgITPRoRmc" },
     { category: "montage",         code: "01:02", title: "مونتاج فيديو",         desc: "إعادة قص وتوليف لمقابلة تلفزيونية.",      gradient: "linear-gradient(135deg,#D91B5C,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
     { category: "real-estate",     code: "00:55", title: "جولة عقارية كاملة",    desc: "تغطية شاملة لوحدة سكنية من الداخل والخارج.", gradient: "linear-gradient(135deg,#7A1F4F,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
     { category: "motion-graphics", code: "00:41", title: "موشن جرافيك",         desc: "فيديو تعريفي بخدمات شركة.",              gradient: "linear-gradient(135deg,#F7941E,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },

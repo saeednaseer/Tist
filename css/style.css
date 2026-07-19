@@ -250,46 +250,43 @@ h1,h2,h3{ font-family: var(--font-display); margin:0; }
 .btn--ghost:hover{ border-color: var(--accent); color: var(--accent); }
 
 .hero__media{ display:flex; justify-content:center; }
-.hero__visual{
-  position:relative;
-  width: min(340px, 80vw);
+.hero__bento{
+  width: min(400px, 85vw);
   aspect-ratio: 4/5;
-  border-radius: var(--radius-lg);
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 12px;
+}
+.bento-tile{
+  position:relative;
+  border-radius: var(--radius);
+  padding: 16px;
+  display:flex; flex-direction:column; justify-content:flex-end; gap:8px;
   overflow:hidden;
-  border: 1px solid rgba(255,255,255,.08);
-  background: radial-gradient(circle at 50% 45%, rgba(217,27,92,.14), transparent 65%), rgba(255,255,255,.02);
-  display:flex; align-items:center; justify-content:center;
+  border: 1px solid rgba(255,255,255,.1);
+  opacity:0; transform: translateY(14px) scale(.96);
+  animation: heroIn .6s ease forwards;
+  transition: transform .25s ease, box-shadow .25s ease;
 }
-.hero__rec{
-  position:absolute; top:14px; inset-inline-end:14px; z-index:2;
-  font-family: var(--font-mono);
-  font-size:.72rem; color:#fff;
-  background: rgba(0,0,0,.55);
-  padding:4px 10px; border-radius: 999px;
-  letter-spacing:1px;
-}
-/* حلقات رادار متحركة — بديل دائم عن الصورة الشخصية، يعكس طبيعة العمل (تصوير جوي بالدرون) */
-.radar{ position:relative; width:180px; height:180px; display:flex; align-items:center; justify-content:center; }
-.radar__ring{
-  position:absolute; inset:0;
-  border-radius:50%;
-  border: 1px solid rgba(217,27,92,.4);
-  animation: radarPulse 3.2s ease-out infinite;
-}
-.radar__ring:nth-child(2){ animation-delay: 1.05s; }
-.radar__ring:nth-child(3){ animation-delay: 2.1s; }
-.radar__core{
-  position:relative; z-index:1;
-  font-size: 2.6rem;
-  filter: drop-shadow(0 0 18px rgba(217,27,92,.5));
-}
-@keyframes radarPulse{
-  0%{ transform: scale(.4); opacity:0; }
-  15%{ opacity:1; }
-  100%{ transform: scale(1.9); opacity:0; }
-}
-@media (prefers-reduced-motion: reduce){
-  .radar__ring{ animation:none; opacity:.35; transform:none; }
+.bento-tile:hover{ transform: translateY(-4px); box-shadow: 0 16px 34px -18px rgba(0,0,0,.6); }
+.bento-tile__icon{ font-size: 1.5rem; }
+.bento-tile__title{ font-size:.82rem; font-weight:700; color:#fff; line-height:1.3; }
+
+/* ألوان متنوعة من نفس هوية العلامة لكل بلاطة — تكوين "Bento" حيوي بدل صورة ثابتة */
+.bento-tile--1{ background: linear-gradient(155deg, var(--accent-3), #4a1030); grid-row: span 2; }
+.bento-tile--1 .bento-tile__icon{ font-size: 2.1rem; }
+.bento-tile--2{ background: linear-gradient(155deg, var(--accent-2), #7a4600); }
+.bento-tile--3{ background: linear-gradient(155deg, var(--accent), #6e0f36); }
+.bento-tile--4{ background: rgba(255,255,255,.04); }
+.bento-tile--4 .bento-tile__title{ color: var(--text); }
+.bento-tile--5{ background: linear-gradient(155deg, var(--accent-3), var(--accent)); }
+.bento-tile--6{ background: rgba(255,255,255,.04); }
+.bento-tile--6 .bento-tile__title{ color: var(--text); }
+
+@media (max-width: 460px){
+  .hero__bento{ width: min(320px, 90vw); }
+  .bento-tile__title{ font-size:.74rem; }
 }
 
 /* شريط الإحصائيات */
@@ -392,6 +389,12 @@ h1,h2,h3{ font-family: var(--font-display); margin:0; }
 .work-card{
   display:flex;
   flex-direction:column;
+  width:100%;
+  text-align: start;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  padding:0;
   border-radius: var(--radius-lg);
   overflow:hidden;
   border: 1px solid rgba(255,255,255,.08);
@@ -408,14 +411,12 @@ h1,h2,h3{ font-family: var(--font-display); margin:0; }
   aspect-ratio: 16/9;
   display:flex; align-items:center; justify-content:center;
   color: rgba(255,255,255,.85);
-  cursor:pointer;
 }
-.work-card__thumb:not(.is-playing)::after{
+.work-card__thumb::after{
   content:"";
   position:absolute; inset:0;
   background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,.55) 100%);
 }
-.work-card__thumb:focus-visible{ outline: 2px solid var(--accent); outline-offset: -2px; }
 .work-card__play{
   position:relative; z-index:2;
   width:52px; height:52px; border-radius:50%;
@@ -424,11 +425,6 @@ h1,h2,h3{ font-family: var(--font-display); margin:0; }
   transition: transform .2s, background .2s;
 }
 .work-card:hover .work-card__play{ transform: scale(1.08); background: var(--accent); color:var(--accent-ink); }
-/* عند التشغيل، يستبدل الفيديو الفعلي الصورة المصغّرة داخل نفس المساحة تمامًا — بدون نافذة منبثقة */
-.work-card__thumb.is-playing{ background:#000 !important; cursor:default; }
-.work-card__thumb.is-playing iframe{
-  position:absolute; inset:0; width:100%; height:100%; border:0;
-}
 .work-card__body{ padding: 18px 20px; }
 .work-card__body h3{ font-size:1.05rem; margin-bottom:6px; }
 .work-card__body p{ color: var(--text-muted); font-size:.88rem; margin:0; }
@@ -437,40 +433,83 @@ h1,h2,h3{ font-family: var(--font-display); margin:0; }
 .clients-marquee{
   border-top:1px solid var(--border);
   overflow:hidden;
-  padding-block: 30px;
+  padding-block: 40px;
+  /* تلاشي ناعم عند طرفي الشريط بدل قطع مفاجئ للشعارات — لمسة احترافية معتادة في عرض شعارات العملاء */
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
 }
 .clients-marquee__track{
-  display:flex; gap: 14px;
+  display:flex; gap: 20px;
   width: max-content;
-  animation: marquee 32s linear infinite;
+  animation: marquee 36s linear infinite;
 }
 .clients-marquee:hover .clients-marquee__track{ animation-play-state: paused; }
 @keyframes marquee{
   from{ transform: translateX(0); }
   to{ transform: translateX(-50%); }
 }
+/* بطاقة بيضاء دائمة خلف كل شعار — تضمن ظهور أي شعار بوضوح مهما كان لونه (فاتح أو غامق) */
 .client-chip{
   flex: 0 0 auto;
-  width: 168px; height: 84px;
-  padding: 16px 22px;
-  border:1px solid rgba(255,255,255,.08);
-  border-radius: var(--radius-sm);
-  background: rgba(255,255,255,.05);
-  backdrop-filter: blur(8px);
+  width: 210px; height: 112px;
+  padding: 20px 26px;
+  border-radius: var(--radius);
+  background: #F5F3EE;
+  box-shadow: 0 14px 30px -16px rgba(0,0,0,.5);
   display:flex; align-items:center; justify-content:center;
-  transition: border-color .25s, background .25s;
+  transition: transform .25s ease, box-shadow .25s ease;
 }
 .client-chip:hover{
-  border-color: rgba(217,27,92,.4);
-  background: rgba(255,255,255,.08);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 38px -14px rgba(217,27,92,.45);
 }
 .client-chip img{
   max-width:100%; max-height:100%;
   object-fit: contain;
-  filter: grayscale(1) opacity(.55);
-  transition: filter .3s;
 }
-.client-chip:hover img{ filter: grayscale(0) opacity(1); }
+
+/* نافذة تشغيل الفيديو (Lightbox) */
+.video-modal{
+  position: fixed; inset:0; z-index: 200;
+  display:flex; align-items:center; justify-content:center;
+  padding: 24px;
+  opacity:0; visibility:hidden;
+  transition: opacity .25s ease;
+}
+.video-modal.is-open{ opacity:1; visibility:visible; }
+.video-modal__backdrop{
+  position:absolute; inset:0;
+  background: rgba(6,6,7,.86);
+  backdrop-filter: blur(6px);
+}
+.video-modal__box{
+  position:relative; z-index:1;
+  width:100%; max-width: 960px;
+  transform: scale(.96);
+  transition: transform .25s ease;
+}
+.video-modal.is-open .video-modal__box{ transform:none; }
+.video-modal__frame{
+  position:relative; width:100%;
+  aspect-ratio: 16/9;
+  border-radius: var(--radius);
+  overflow:hidden;
+  background:#000;
+  border: 1px solid rgba(255,255,255,.1);
+}
+.video-modal__frame iframe{
+  position:absolute; inset:0; width:100%; height:100%; border:0;
+}
+.video-modal__close{
+  position:absolute; top:-46px; inset-inline-end:0;
+  width:38px; height:38px; border-radius:50%;
+  background: rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.15);
+  color:#fff; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  transition: background .2s, border-color .2s;
+}
+.video-modal__close:hover{ background: var(--accent); border-color: var(--accent); }
 
 /* تواصل */
 .contact{ text-align:center; position:relative; }

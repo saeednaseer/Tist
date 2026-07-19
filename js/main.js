@@ -79,6 +79,17 @@ document.addEventListener('DOMContentLoaded', () => {
     `).join('');
   }
 
+  /* ---------- فسيفساء الهيرو (Bento) — بديل الصورة الشخصية، مبني من أقسام الخدمات الفعلية ---------- */
+  const heroBento = document.getElementById('heroBento');
+  if (heroBento && c.services) {
+    heroBento.innerHTML = c.services.slice(0, 6).map((s, i) => `
+      <a href="works.html?cat=${encodeURIComponent(s.slug)}" class="bento-tile bento-tile--${i + 1}" style="animation-delay:${.55 + i * .07}s">
+        <span class="bento-tile__icon">${s.icon}</span>
+        <span class="bento-tile__title">${s.title}</span>
+      </a>
+    `).join('');
+  }
+
   /* ---------- استخراج معرّف فيديو يوتيوب (يُستخدم في الصورة المصغّرة وفي المشغّل) ---------- */
   function getYouTubeId(url) {
     if (!url) return null;
@@ -101,17 +112,17 @@ document.addEventListener('DOMContentLoaded', () => {
       ? `background-image:url('https://img.youtube.com/vi/${ytId}/hqdefault.jpg'); background-size:cover; background-position:center;`
       : `background:${w.gradient}`;
     return `
-      <div class="work-card reveal">
-        <div class="work-card__thumb" data-video="${w.videoLink || ''}" style="${thumbStyle}" role="button" tabindex="0" aria-label="تشغيل فيديو: ${w.title}">
+      <button type="button" class="work-card reveal" data-video="${w.videoLink || ''}" aria-label="تشغيل فيديو: ${w.title}">
+        <span class="work-card__thumb" style="${thumbStyle}">
           <span class="work-card__play" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M20 4v16l-16-8z"/></svg>
           </span>
-        </div>
-        <div class="work-card__body">
+        </span>
+        <span class="work-card__body">
           <h3>${w.title}</h3>
           <p>${w.desc}</p>
-        </div>
-      </div>
+        </span>
+      </button>
     `;
   }
 
@@ -198,31 +209,37 @@ document.addEventListener('DOMContentLoaded', () => {
     }));
   }
 
-  /* ---------- تشغيل الفيديو داخل الكرت نفسه مباشرة (بدون نافذة منبثقة) ---------- */
-  function playInlineVideo(thumb) {
-    const link = thumb.getAttribute('data-video');
-    const ytId = getYouTubeId(link);
-    if (!ytId) {
-      // رابط غير صالح كفيديو يوتيوب — نفتحه في تبويب جديد كحل احتياطي
-      if (link) window.open(link, '_blank', 'noopener');
-      return;
-    }
-    thumb.innerHTML = `<iframe src="https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0" title="مشغّل الفيديو" frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-    thumb.classList.add('is-playing');
+  /* ---------- نافذة تشغيل الفيديو داخل الموقع ---------- */
+  function toYouTubeEmbed(url) {
+    const id = getYouTubeId(url);
+    return id ? `https://www.youtube.com/embed/${id}?autoplay=1&rel=0` : url;
   }
 
-  document.querySelectorAll('.work-card__thumb').forEach(thumb => {
-    thumb.addEventListener('click', () => {
-      if (thumb.classList.contains('is-playing')) return; // الفيديو شغّال بالفعل
-      playInlineVideo(thumb);
-    });
-    thumb.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        if (!thumb.classList.contains('is-playing')) playInlineVideo(thumb);
-      }
-    });
+  const videoModal = document.getElementById('videoModal');
+  const videoModalIframe = document.getElementById('videoModalIframe');
+  const videoModalBackdrop = document.getElementById('videoModalBackdrop');
+  const videoModalClose = document.getElementById('videoModalClose');
+
+  function openVideoModal(link) {
+    if (!link || !videoModal || !videoModalIframe) return;
+    videoModalIframe.src = toYouTubeEmbed(link);
+    videoModal.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeVideoModal() {
+    if (!videoModal || !videoModalIframe) return;
+    videoModal.classList.remove('is-open');
+    videoModalIframe.src = ''; // إيقاف الفيديو فورًا عند الإغلاق
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.work-card').forEach(card => {
+    card.addEventListener('click', () => openVideoModal(card.getAttribute('data-video')));
+  });
+  if (videoModalBackdrop) videoModalBackdrop.addEventListener('click', closeVideoModal);
+  if (videoModalClose) videoModalClose.addEventListener('click', closeVideoModal);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeVideoModal();
   });
 
   /* ---------- ظهور تدريجي عند التمرير ---------- */
@@ -279,7 +296,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!prefersReducedMotion && window.matchMedia('(hover: hover)').matches) {
     document.querySelectorAll('.service-card, .work-card').forEach(card => {
       card.addEventListener('mousemove', (e) => {
-        if (card.querySelector('.work-card__thumb.is-playing')) return; // لا تميل الكرت أثناء تشغيل الفيديو
         const rect = card.getBoundingClientRect();
         const px = (e.clientX - rect.left) / rect.width - 0.5;
         const py = (e.clientY - rect.top) / rect.height - 0.5;

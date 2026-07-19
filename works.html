@@ -73,6 +73,21 @@
   </div>
 </section>
 
+<!-- نافذة تشغيل الفيديو (Lightbox) — يظهر فيها الفيديو داخل الموقع مباشرة -->
+<div class="video-modal" id="videoModal" role="dialog" aria-modal="true" aria-label="مشغّل الفيديو">
+  <div class="video-modal__backdrop" id="videoModalBackdrop"></div>
+  <div class="video-modal__box">
+    <button class="video-modal__close" id="videoModalClose" aria-label="إغلاق">
+      <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M18.3 5.71L12 12l6.3 6.29-1.41 1.42L10.59 13.4 4.3 19.7 2.89 18.3 9.17 12 2.89 5.71 4.3 4.29l6.29 6.3 6.29-6.3z"/></svg>
+    </button>
+    <div class="video-modal__frame">
+      <iframe id="videoModalIframe" src="" title="مشغّل الفيديو" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
 </main>
 
 <!-- ===================== الفوتر ===================== -->

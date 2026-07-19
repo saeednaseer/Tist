@@ -250,23 +250,46 @@ h1,h2,h3{ font-family: var(--font-display); margin:0; }
 .btn--ghost:hover{ border-color: var(--accent); color: var(--accent); }
 
 .hero__media{ display:flex; justify-content:center; }
-.hero__frame{
+.hero__visual{
   position:relative;
   width: min(340px, 80vw);
   aspect-ratio: 4/5;
-  border-radius: var(--radius);
+  border-radius: var(--radius-lg);
   overflow:hidden;
-  border: 1px solid var(--border);
-  background: var(--surface);
+  border: 1px solid rgba(255,255,255,.08);
+  background: radial-gradient(circle at 50% 45%, rgba(217,27,92,.14), transparent 65%), rgba(255,255,255,.02);
+  display:flex; align-items:center; justify-content:center;
 }
-.hero__frame img{ width:100%; height:100%; object-fit:cover; }
 .hero__rec{
-  position:absolute; top:14px; inset-inline-end:14px;
+  position:absolute; top:14px; inset-inline-end:14px; z-index:2;
   font-family: var(--font-mono);
   font-size:.72rem; color:#fff;
   background: rgba(0,0,0,.55);
   padding:4px 10px; border-radius: 999px;
   letter-spacing:1px;
+}
+/* حلقات رادار متحركة — بديل دائم عن الصورة الشخصية، يعكس طبيعة العمل (تصوير جوي بالدرون) */
+.radar{ position:relative; width:180px; height:180px; display:flex; align-items:center; justify-content:center; }
+.radar__ring{
+  position:absolute; inset:0;
+  border-radius:50%;
+  border: 1px solid rgba(217,27,92,.4);
+  animation: radarPulse 3.2s ease-out infinite;
+}
+.radar__ring:nth-child(2){ animation-delay: 1.05s; }
+.radar__ring:nth-child(3){ animation-delay: 2.1s; }
+.radar__core{
+  position:relative; z-index:1;
+  font-size: 2.6rem;
+  filter: drop-shadow(0 0 18px rgba(217,27,92,.5));
+}
+@keyframes radarPulse{
+  0%{ transform: scale(.4); opacity:0; }
+  15%{ opacity:1; }
+  100%{ transform: scale(1.9); opacity:0; }
+}
+@media (prefers-reduced-motion: reduce){
+  .radar__ring{ animation:none; opacity:.35; transform:none; }
 }
 
 /* شريط الإحصائيات */
@@ -369,12 +392,6 @@ h1,h2,h3{ font-family: var(--font-display); margin:0; }
 .work-card{
   display:flex;
   flex-direction:column;
-  width:100%;
-  text-align: start;
-  font: inherit;
-  color: inherit;
-  cursor: pointer;
-  padding:0;
   border-radius: var(--radius-lg);
   overflow:hidden;
   border: 1px solid rgba(255,255,255,.08);
@@ -388,15 +405,17 @@ h1,h2,h3{ font-family: var(--font-display); margin:0; }
 }
 .work-card__thumb{
   position:relative;
-  aspect-ratio: 16/10;
+  aspect-ratio: 16/9;
   display:flex; align-items:center; justify-content:center;
   color: rgba(255,255,255,.85);
+  cursor:pointer;
 }
-.work-card__thumb::after{
+.work-card__thumb:not(.is-playing)::after{
   content:"";
   position:absolute; inset:0;
   background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,.55) 100%);
 }
+.work-card__thumb:focus-visible{ outline: 2px solid var(--accent); outline-offset: -2px; }
 .work-card__play{
   position:relative; z-index:2;
   width:52px; height:52px; border-radius:50%;
@@ -405,10 +424,10 @@ h1,h2,h3{ font-family: var(--font-display); margin:0; }
   transition: transform .2s, background .2s;
 }
 .work-card:hover .work-card__play{ transform: scale(1.08); background: var(--accent); color:var(--accent-ink); }
-.work-card__code{
-  position:absolute; bottom:10px; inset-inline-start:12px; z-index:2;
-  font-family: var(--font-mono); font-size:.72rem;
-  color:#fff; letter-spacing:1px;
+/* عند التشغيل، يستبدل الفيديو الفعلي الصورة المصغّرة داخل نفس المساحة تمامًا — بدون نافذة منبثقة */
+.work-card__thumb.is-playing{ background:#000 !important; cursor:default; }
+.work-card__thumb.is-playing iframe{
+  position:absolute; inset:0; width:100%; height:100%; border:0;
 }
 .work-card__body{ padding: 18px 20px; }
 .work-card__body h3{ font-size:1.05rem; margin-bottom:6px; }
@@ -452,49 +471,6 @@ h1,h2,h3{ font-family: var(--font-display); margin:0; }
   transition: filter .3s;
 }
 .client-chip:hover img{ filter: grayscale(0) opacity(1); }
-
-/* نافذة تشغيل الفيديو (Lightbox) */
-.video-modal{
-  position: fixed; inset:0; z-index: 200;
-  display:flex; align-items:center; justify-content:center;
-  padding: 24px;
-  opacity:0; visibility:hidden;
-  transition: opacity .25s ease;
-}
-.video-modal.is-open{ opacity:1; visibility:visible; }
-.video-modal__backdrop{
-  position:absolute; inset:0;
-  background: rgba(6,6,7,.86);
-  backdrop-filter: blur(6px);
-}
-.video-modal__box{
-  position:relative; z-index:1;
-  width:100%; max-width: 960px;
-  transform: scale(.96);
-  transition: transform .25s ease;
-}
-.video-modal.is-open .video-modal__box{ transform:none; }
-.video-modal__frame{
-  position:relative; width:100%;
-  aspect-ratio: 16/9;
-  border-radius: var(--radius);
-  overflow:hidden;
-  background:#000;
-  border: 1px solid rgba(255,255,255,.1);
-}
-.video-modal__frame iframe{
-  position:absolute; inset:0; width:100%; height:100%; border:0;
-}
-.video-modal__close{
-  position:absolute; top:-46px; inset-inline-end:0;
-  width:38px; height:38px; border-radius:50%;
-  background: rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.15);
-  color:#fff; cursor:pointer;
-  display:flex; align-items:center; justify-content:center;
-  transition: background .2s, border-color .2s;
-}
-.video-modal__close:hover{ background: var(--accent); border-color: var(--accent); }
 
 /* تواصل */
 .contact{ text-align:center; position:relative; }

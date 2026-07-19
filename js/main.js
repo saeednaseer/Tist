@@ -101,18 +101,17 @@ document.addEventListener('DOMContentLoaded', () => {
       ? `background-image:url('https://img.youtube.com/vi/${ytId}/hqdefault.jpg'); background-size:cover; background-position:center;`
       : `background:${w.gradient}`;
     return `
-      <button type="button" class="work-card reveal" data-video="${w.videoLink || ''}" aria-label="تشغيل فيديو: ${w.title}">
-        <span class="work-card__thumb" style="${thumbStyle}">
-          <span class="work-card__code">${w.code}</span>
+      <div class="work-card reveal">
+        <div class="work-card__thumb" data-video="${w.videoLink || ''}" style="${thumbStyle}" role="button" tabindex="0" aria-label="تشغيل فيديو: ${w.title}">
           <span class="work-card__play" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M20 4v16l-16-8z"/></svg>
           </span>
-        </span>
-        <span class="work-card__body">
+        </div>
+        <div class="work-card__body">
           <h3>${w.title}</h3>
           <p>${w.desc}</p>
-        </span>
-      </button>
+        </div>
+      </div>
     `;
   }
 
@@ -199,37 +198,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }));
   }
 
-  /* ---------- نافذة تشغيل الفيديو داخل الموقع ---------- */
-  function toYouTubeEmbed(url) {
-    const id = getYouTubeId(url);
-    return id ? `https://www.youtube.com/embed/${id}?autoplay=1&rel=0` : url;
+  /* ---------- تشغيل الفيديو داخل الكرت نفسه مباشرة (بدون نافذة منبثقة) ---------- */
+  function playInlineVideo(thumb) {
+    const link = thumb.getAttribute('data-video');
+    const ytId = getYouTubeId(link);
+    if (!ytId) {
+      // رابط غير صالح كفيديو يوتيوب — نفتحه في تبويب جديد كحل احتياطي
+      if (link) window.open(link, '_blank', 'noopener');
+      return;
+    }
+    thumb.innerHTML = `<iframe src="https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0" title="مشغّل الفيديو" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+    thumb.classList.add('is-playing');
   }
 
-  const videoModal = document.getElementById('videoModal');
-  const videoModalIframe = document.getElementById('videoModalIframe');
-  const videoModalBackdrop = document.getElementById('videoModalBackdrop');
-  const videoModalClose = document.getElementById('videoModalClose');
-
-  function openVideoModal(link) {
-    if (!link || !videoModal || !videoModalIframe) return;
-    videoModalIframe.src = toYouTubeEmbed(link);
-    videoModal.classList.add('is-open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeVideoModal() {
-    if (!videoModal || !videoModalIframe) return;
-    videoModal.classList.remove('is-open');
-    videoModalIframe.src = ''; // إيقاف الفيديو فورًا عند الإغلاق
-    document.body.style.overflow = '';
-  }
-
-  document.querySelectorAll('.work-card').forEach(card => {
-    card.addEventListener('click', () => openVideoModal(card.getAttribute('data-video')));
-  });
-  if (videoModalBackdrop) videoModalBackdrop.addEventListener('click', closeVideoModal);
-  if (videoModalClose) videoModalClose.addEventListener('click', closeVideoModal);
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeVideoModal();
+  document.querySelectorAll('.work-card__thumb').forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      if (thumb.classList.contains('is-playing')) return; // الفيديو شغّال بالفعل
+      playInlineVideo(thumb);
+    });
+    thumb.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (!thumb.classList.contains('is-playing')) playInlineVideo(thumb);
+      }
+    });
   });
 
   /* ---------- ظهور تدريجي عند التمرير ---------- */
@@ -286,6 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!prefersReducedMotion && window.matchMedia('(hover: hover)').matches) {
     document.querySelectorAll('.service-card, .work-card').forEach(card => {
       card.addEventListener('mousemove', (e) => {
+        if (card.querySelector('.work-card__thumb.is-playing')) return; // لا تميل الكرت أثناء تشغيل الفيديو
         const rect = card.getBoundingClientRect();
         const px = (e.clientX - rect.left) / rect.width - 0.5;
         const py = (e.clientY - rect.top) / rect.height - 0.5;

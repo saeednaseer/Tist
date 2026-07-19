@@ -15,7 +15,6 @@ const siteContent = {
   roles: ["مصور درون", "مونتير فيديو", "منتج عقاري", "مصمم موشن جرافيك"],
 
   bio: "أوثّق العقارات والمشاريع والبرامج التلفزيونية بعدسة الدرون وأدوات المونتاج والموشن جرافيك، وأحوّل الفكرة الخام إلى محتوى بصري جاهز للنشر.",
-  avatarSrc: "images/avatar-placeholder.svg",
 
   // -------- الإحصائيات (شريط التايم كود) --------
   stats: [
@@ -46,15 +45,15 @@ const siteContent = {
 
   // -------- الأعمال / المعرض --------
   // category: لازم تطابق أحد قيم slug في مصفوفة services بالأعلى — بيها يتحدد في أي صفحة قسم يظهر هذا العمل
-  // لون التدرّج يتحكم في خلفية الصورة المصغّرة (يُستخدم فقط إن لم تتوفر صورة مصغّرة حقيقية)
-  // videoLink: ضع هنا رابط الفيديو الفعلي (يوتيوب، تيك توك، إلخ) — الكرت كامل يصبح قابل للنقر ويشغّل الفيديو داخل الموقع
+  // لون التدرّج يتحكم في خلفية الصورة المصغّرة (يُستخدم فقط إن لم تتوفر صورة مصغّرة حقيقية من رابط يوتيوب صالح)
+  // videoLink: ضع هنا رابط فيديو يوتيوب — الفيديو يشتغل مباشرة داخل الكرت نفسه عند الضغط عليه، بدون نافذة منبثقة
   work: [
-    { category: "drone",           code: "00:24", title: "تصوير عقاري بالدرون",  desc: "توثيق جوي لمشروع سكني.",              gradient: "linear-gradient(135deg,#9F1F63,#0E0E10)", videoLink: "https://youtu.be/BVgITPRoRmc" },
-    { category: "montage",         code: "01:02", title: "مونتاج فيديو",         desc: "إعادة قص وتوليف لمقابلة تلفزيونية.",      gradient: "linear-gradient(135deg,#D91B5C,#0E0E10)", videoLink: "https://youtu.be/lNaBTAGeCbM?si=d0yNFQn6P81B760F" },
-    { category: "real-estate",     code: "00:55", title: "جولة عقارية كاملة",    desc: "تغطية شاملة لوحدة سكنية من الداخل والخارج.", gradient: "linear-gradient(135deg,#7A1F4F,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
-    { category: "motion-graphics", code: "00:41", title: "موشن جرافيك",         desc: "فيديو تعريفي بخدمات شركة.",              gradient: "linear-gradient(135deg,#F7941E,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
-    { category: "logo-animation",  code: "00:18", title: "تحريك شعار",          desc: "هوية بصرية متحركة لعلامة تجارية.",        gradient: "linear-gradient(135deg,#7A1750,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
-    { category: "tv-programs",     code: "00:33", title: "تغطية برنامج تلفزيوني", desc: "تصوير ومونتاج حلقة برنامج كامل.",       gradient: "linear-gradient(135deg,#B0195C,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" }
+    { category: "drone",           title: "تصوير عقاري بالدرون",  desc: "توثيق جوي لمشروع سكني.",              gradient: "linear-gradient(135deg,#9F1F63,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
+    { category: "montage",         title: "مونتاج فيديو",         desc: "إعادة قص وتوليف لمقابلة تلفزيونية.",      gradient: "linear-gradient(135deg,#D91B5C,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
+    { category: "real-estate",     title: "جولة عقارية كاملة",    desc: "تغطية شاملة لوحدة سكنية من الداخل والخارج.", gradient: "linear-gradient(135deg,#7A1F4F,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
+    { category: "motion-graphics", title: "موشن جرافيك",         desc: "فيديو تعريفي بخدمات شركة.",              gradient: "linear-gradient(135deg,#F7941E,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
+    { category: "logo-animation",  title: "تحريك شعار",          desc: "هوية بصرية متحركة لعلامة تجارية.",        gradient: "linear-gradient(135deg,#7A1750,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
+    { category: "tv-programs",     title: "تغطية برنامج تلفزيوني", desc: "تصوير ومونتاج حلقة برنامج كامل.",       gradient: "linear-gradient(135deg,#B0195C,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" }
   ],
 
   // -------- العملاء --------
@@ -73,7 +72,7 @@ const siteContent = {
 
   // -------- تواصل --------
   contactTitle: "لنبدأ مشروعك القادم",
-  contactText: "عندك عقار، حدث، أو فكرة تحتاج محتوى مرئي احترافي؟ تواصل معي وخلينا نحوّلها لعمل جاهز للنشر.",
+  contactText: "عندك عقار، حدث، أو فكرة تحتاج محتوى مرئي احترافي؟ تواصل معي لنحوّلها إلى عمل جاهز للنشر.",
   whatsappLink: "https://wa.me/200000000000",
 
   // -------- الفوتر --------

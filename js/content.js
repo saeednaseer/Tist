@@ -60,7 +60,7 @@ const siteContent = {
   // ضع اسم العميل الحقيقي وشعاره في مجلد images/clients/ ثم عدّل مسار logo هنا
   // الشعارات تظهر بتدرج رمادي وتتحول لألوانها الحقيقية عند تمرير الفأرة (تأثير معاصر شائع)
   clients: [
-    { name: "عميل 01", logo: "images/clients/client-01.png" },
+    { name: "عميل 01", logo: "عملائي/جاخز/client (1).png" },
     { name: "عميل 02", logo: "images/clients/client-02.png" },
     { name: "عميل 03", logo: "images/clients/client-03.png" },
     { name: "عميل 04", logo: "images/clients/client-04.png" },

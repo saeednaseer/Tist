@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-content="pageTitle">سعيد ناصر | الأعمال</title>
+<meta name="description" data-content-attr="pageDescription:content" content="معرض أعمال مصنّف حسب القسم: تصوير درون، مونتاج، إنتاج عقاري، موشن جرافيك، تحريك شعارات، وبرامج تلفزيونية.">
+
+<link rel="icon" type="image/png" href="images/logo.png">
+
+<meta property="og:type" content="website">
+<meta property="og:title" data-content-attr="pageTitle:content" content="سعيد ناصر | الأعمال">
+<meta property="og:description" data-content-attr="pageDescription:content" content="معرض أعمال مصنّف حسب القسم.">
+<meta property="og:image" content="images/logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- شريط تايم كود علوي (زخرفة موحية بمونتاج الفيديو) -->
+<div class="timecode-strip" aria-hidden="true">
+  <div class="timecode-strip__track"></div>
+</div>
+
+<!-- ===================== الهيدر ===================== -->
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="سعيد ناصر" class="logo-img" data-content-attr="fullName:alt">
+    </a>
+
+    <nav class="nav" id="nav">
+      <a href="index.html">الرئيسية</a>
+      <a href="index.html#about">نبذة</a>
+      <a href="index.html#services">الخدمات</a>
+      <a href="works.html" class="is-active">الأعمال</a>
+      <a href="index.html#clients">العملاء</a>
+      <a href="index.html#contact" class="nav__cta">تواصل معي</a>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-label="القائمة" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+<!-- ===================== رأس صفحة الأعمال ===================== -->
+<section class="section works-page">
+  <div class="container">
+
+    <a href="index.html" class="back-link">→ الرئيسية</a>
+
+    <div class="section__head">
+      <span class="eyebrow">معرض الأعمال</span>
+      <h2 id="categoryTitle">كل الأعمال</h2>
+      <p class="section__desc" id="categoryDesc">كل المشاريع المعروضة في المعرض، من كل الأقسام.</p>
+    </div>
+
+    <!-- شريط تصفية حسب القسم -->
+    <div class="category-chips" id="categoryChips">
+      <!-- تُملأ ديناميكياً من content.js -->
+    </div>
+
+    <div class="work-grid" id="categoryWorkGrid">
+      <!-- تُملأ ديناميكياً من content.js حسب رابط ?cat= -->
+    </div>
+
+  </div>
+</section>
+
+<!-- نافذة تشغيل الفيديو (Lightbox) — يظهر فيها الفيديو داخل الموقع مباشرة -->
+<div class="video-modal" id="videoModal" role="dialog" aria-modal="true" aria-label="مشغّل الفيديو">
+  <div class="video-modal__backdrop" id="videoModalBackdrop"></div>
+  <div class="video-modal__box">
+    <button class="video-modal__close" id="videoModalClose" aria-label="إغلاق">
+      <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M18.3 5.71L12 12l6.3 6.29-1.41 1.42L10.59 13.4 4.3 19.7 2.89 18.3 9.17 12 2.89 5.71 4.3 4.29l6.29 6.3 6.29-6.3z"/></svg>
+    </button>
+    <div class="video-modal__frame">
+      <iframe id="videoModalIframe" src="" title="مشغّل الفيديو" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<!-- ===================== الفوتر ===================== -->
+<footer class="footer">
+  <div class="container footer__grid">
+
+    <div class="footer__about">
+      <img src="images/logo.png" alt="سعيد ناصر" class="logo-img" data-content-attr="fullName:alt">
+      <p data-content="footerTagline">وصف قصير عنك يظهر في الفوتر، عدّله من content.js.</p>
+      <div class="socials" id="socialsRow"></div>
+    </div>
+
+    <div class="footer__col">
+      <h4>الصفحات</h4>
+      <ul>
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="index.html#about">نبذة</a></li>
+        <li><a href="works.html">معرض الأعمال</a></li>
+        <li><a href="index.html#services">الخدمات</a></li>
+        <li><a href="index.html#contact">تواصل</a></li>
+      </ul>
+    </div>
+
+    <div class="footer__col">
+      <h4>تواصل معي</h4>
+      <ul>
+        <li><a data-content="phoneDisplay" data-content-attr="whatsappLink:href" href="#">+20 000 000 0000</a></li>
+        <li><a data-content="email" data-content-attr="emailLink:href" href="#">example@email.com</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="container footer__bottom">
+    <p>© <span id="year"></span> <span data-content="fullName">اسمك</span>. جميع الحقوق محفوظة</p>
+  </div>
+</footer>
+
+<script src="js/content.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

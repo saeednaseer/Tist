@@ -1,0 +1,6 @@
+<svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="500" fill="#1D1D21"/>
+  <circle cx="200" cy="190" r="80" fill="#2A2A2F"/>
+  <path d="M60 460 C60 350 340 350 340 460 L340 500 L60 500 Z" fill="#2A2A2F"/>
+  <text x="200" y="470" font-family="Tajawal, sans-serif" font-size="16" fill="#6E6E76" text-anchor="middle">ضع صورتك هنا</text>
+</svg>

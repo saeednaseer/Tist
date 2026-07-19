@@ -69,38 +69,98 @@ document.addEventListener('DOMContentLoaded', () => {
   const servicesGrid = document.getElementById('servicesGrid');
   if (servicesGrid && c.services) {
     servicesGrid.innerHTML = c.services.map(s => `
-      <div class="service-card">
+      <a href="works.html?cat=${encodeURIComponent(s.slug)}" class="service-card reveal">
         <div class="service-card__tag">${s.tag}</div>
         <div class="service-card__icon">${s.icon}</div>
         <h3>${s.title}</h3>
         <p>${s.desc}</p>
-      </div>
+        <span class="service-card__more">شاهد أعمال هذا القسم ←</span>
+      </a>
     `).join('');
   }
 
-  /* ---------- الأعمال ---------- */
-  const workGrid = document.getElementById('workGrid');
-  if (workGrid && c.work) {
-    workGrid.innerHTML = c.work.map(w => `
-      <div class="work-card">
-        <div class="work-card__thumb" style="background:${w.gradient}">
+  /* ---------- استخراج معرّف فيديو يوتيوب (يُستخدم في الصورة المصغّرة وفي المشغّل) ---------- */
+  function getYouTubeId(url) {
+    if (!url) return null;
+    try {
+      const u = new URL(url, window.location.href);
+      if (u.hostname.includes('youtu.be')) return u.pathname.slice(1) || null;
+      if (u.hostname.includes('youtube.com')) {
+        if (u.pathname.startsWith('/embed/')) return u.pathname.split('/').pop();
+        return u.searchParams.get('v') || null;
+      }
+    } catch (e) { /* رابط غير صالح */ }
+    return null;
+  }
+
+  /* ---------- بناء كرت عمل واحد (يُستخدم في الصفحة الرئيسية وصفحة الأعمال المفلترة) ---------- */
+  function renderWorkCard(w) {
+    const ytId = getYouTubeId(w.videoLink);
+    // إن وُجد رابط يوتيوب صالح، تُستخدم الصورة المصغّرة الحقيقية للفيديو بدل التدرّج اللوني
+    const thumbStyle = ytId
+      ? `background-image:url('https://img.youtube.com/vi/${ytId}/hqdefault.jpg'); background-size:cover; background-position:center;`
+      : `background:${w.gradient}`;
+    return `
+      <button type="button" class="work-card reveal" data-video="${w.videoLink || ''}" aria-label="تشغيل فيديو: ${w.title}">
+        <span class="work-card__thumb" style="${thumbStyle}">
           <span class="work-card__code">${w.code}</span>
           <span class="work-card__play" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M20 4v16l-16-8z"/></svg>
           </span>
-        </div>
-        <div class="work-card__body">
+        </span>
+        <span class="work-card__body">
           <h3>${w.title}</h3>
           <p>${w.desc}</p>
-        </div>
-      </div>
-    `).join('');
+        </span>
+      </button>
+    `;
+  }
+
+  /* ---------- الأعمال (الصفحة الرئيسية) ---------- */
+  const workGrid = document.getElementById('workGrid');
+  if (workGrid && c.work) {
+    workGrid.innerHTML = c.work.map(renderWorkCard).join('');
+  }
+
+  /* ---------- صفحة الأعمال المفلترة حسب القسم (works.html?cat=slug) ---------- */
+  const categoryGrid = document.getElementById('categoryWorkGrid');
+  if (categoryGrid && c.work && c.services) {
+    const params = new URLSearchParams(window.location.search);
+    const activeSlug = params.get('cat');
+    const activeService = c.services.find(s => s.slug === activeSlug);
+
+    // شريط تصفية بكل الأقسام أعلى الصفحة، مع تمييز القسم الحالي
+    const chipsEl = document.getElementById('categoryChips');
+    if (chipsEl) {
+      chipsEl.innerHTML = c.services.map(s => `
+        <a href="works.html?cat=${encodeURIComponent(s.slug)}" class="category-chip${s.slug === activeSlug ? ' is-active' : ''}">${s.icon} ${s.title}</a>
+      `).join('') + `<a href="works.html" class="category-chip${!activeSlug ? ' is-active' : ''}">🗂️ كل الأعمال</a>`;
+    }
+
+    const titleEl = document.getElementById('categoryTitle');
+    const descEl = document.getElementById('categoryDesc');
+    if (activeService) {
+      if (titleEl) titleEl.textContent = activeService.title;
+      if (descEl) descEl.textContent = activeService.desc;
+    } else {
+      if (titleEl) titleEl.textContent = 'كل الأعمال';
+      if (descEl) descEl.textContent = 'كل المشاريع المعروضة في المعرض، من كل الأقسام.';
+    }
+
+    const filtered = activeSlug ? c.work.filter(w => w.category === activeSlug) : c.work;
+    categoryGrid.innerHTML = filtered.length
+      ? filtered.map(renderWorkCard).join('')
+      : `<p class="category-empty">لا توجد أعمال مضافة في هذا القسم بعد.</p>`;
   }
 
   /* ---------- العملاء (ماركيه بتكرار مزدوج للحركة السلسة) ---------- */
   const clientsTrack = document.getElementById('clientsTrack');
   if (clientsTrack && c.clients) {
-    const chips = c.clients.map(name => `<span class="client-chip">${name}</span>`).join('');
+    const chips = c.clients.map(client => `
+      <span class="client-chip">
+        <img src="${client.logo}" alt="${client.name}" loading="lazy">
+      </span>
+    `).join('');
     clientsTrack.innerHTML = chips + chips;
   }
 
@@ -137,5 +197,159 @@ document.addEventListener('DOMContentLoaded', () => {
       nav.classList.remove('is-open');
       navToggle.setAttribute('aria-expanded', false);
     }));
+  }
+
+  /* ---------- نافذة تشغيل الفيديو داخل الموقع ---------- */
+  function toYouTubeEmbed(url) {
+    const id = getYouTubeId(url);
+    return id ? `https://www.youtube.com/embed/${id}?autoplay=1&rel=0` : url;
+  }
+
+  const videoModal = document.getElementById('videoModal');
+  const videoModalIframe = document.getElementById('videoModalIframe');
+  const videoModalBackdrop = document.getElementById('videoModalBackdrop');
+  const videoModalClose = document.getElementById('videoModalClose');
+
+  function openVideoModal(link) {
+    if (!link || !videoModal || !videoModalIframe) return;
+    videoModalIframe.src = toYouTubeEmbed(link);
+    videoModal.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeVideoModal() {
+    if (!videoModal || !videoModalIframe) return;
+    videoModal.classList.remove('is-open');
+    videoModalIframe.src = ''; // إيقاف الفيديو فورًا عند الإغلاق
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.work-card').forEach(card => {
+    card.addEventListener('click', () => openVideoModal(card.getAttribute('data-video')));
+  });
+  if (videoModalBackdrop) videoModalBackdrop.addEventListener('click', closeVideoModal);
+  if (videoModalClose) videoModalClose.addEventListener('click', closeVideoModal);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeVideoModal();
+  });
+
+  /* ---------- ظهور تدريجي عند التمرير ---------- */
+  const revealTargets = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && revealTargets.length) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    revealTargets.forEach(el => io.observe(el));
+  } else {
+    revealTargets.forEach(el => el.classList.add('in-view'));
+  }
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- عدّاد متحرك للإحصائيات عند ظهورها ---------- */
+  if (statsGrid && !prefersReducedMotion) {
+    const numEls = statsGrid.querySelectorAll('.stat__num');
+    const countUp = (el) => {
+      const raw = el.textContent.trim();
+      const match = raw.match(/^(\D*)(\d+)(\D*)$/); // بادئة غير رقمية، رقم، لاحقة غير رقمية
+      if (!match) return;
+      const [, prefix, digits, suffix] = match;
+      const target = parseInt(digits, 10);
+      const duration = 1200;
+      const start = performance.now();
+      function frame(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = `${prefix}${Math.round(target * eased)}${suffix}`;
+        if (progress < 1) requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    };
+    if ('IntersectionObserver' in window) {
+      const statIo = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            countUp(entry.target);
+            statIo.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      numEls.forEach(el => statIo.observe(el));
+    }
+  }
+
+  /* ---------- ميل خفيف للكروت عند تحريك الفأرة (تفاعل معاصر) ---------- */
+  if (!prefersReducedMotion && window.matchMedia('(hover: hover)').matches) {
+    document.querySelectorAll('.service-card, .work-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const px = (e.clientX - rect.left) / rect.width - 0.5;
+        const py = (e.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform = `perspective(600px) rotateX(${py * -6}deg) rotateY(${px * 6}deg) translateY(-4px)`;
+      });
+      card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+    });
+  }
+
+  /* ---------- تمييز رابط القسم الحالي في القائمة أثناء التمرير ---------- */
+  const navLinks = document.querySelectorAll('.nav a[href^="#"]');
+  const sections = Array.from(navLinks)
+    .map(a => document.querySelector(a.getAttribute('href')))
+    .filter(Boolean);
+  if ('IntersectionObserver' in window && sections.length) {
+    const spyIo = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const link = document.querySelector(`.nav a[href="#${entry.target.id}"]`);
+        if (!link) return;
+        if (entry.isIntersecting) {
+          navLinks.forEach(a => a.classList.remove('is-active'));
+          link.classList.add('is-active');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    sections.forEach(sec => spyIo.observe(sec));
+  }
+
+  const hoverCapable = window.matchMedia('(hover: hover)').matches;
+
+  /* ---------- توهّج يتبع الفأرة داخل الهيرو ---------- */
+  const heroGlow = document.getElementById('heroGlow');
+  const heroSection = document.querySelector('.hero');
+  if (heroGlow && heroSection && !prefersReducedMotion && hoverCapable) {
+    heroSection.addEventListener('mousemove', (e) => {
+      const rect = heroSection.getBoundingClientRect();
+      heroGlow.style.setProperty('--gx', `${e.clientX - rect.left}px`);
+      heroGlow.style.setProperty('--gy', `${e.clientY - rect.top}px`);
+    });
+  }
+
+  /* ---------- أزرار "مغناطيسية" تنجذب قليلًا نحو الفأرة ---------- */
+  if (!prefersReducedMotion && hoverCapable) {
+    document.querySelectorAll('.btn--primary').forEach(btn => {
+      btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const mx = (e.clientX - rect.left - rect.width / 2) * 0.25;
+        const my = (e.clientY - rect.top - rect.height / 2) * 0.35;
+        btn.style.transform = `translate(${mx}px, ${my}px)`;
+      });
+      btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+    });
+  }
+
+  /* ---------- شريط التقدّم أثناء التمرير (تُستخدم نفس مساحة شريط التايم كود العلوي) ---------- */
+  const timecodeTrack = document.querySelector('.timecode-strip__track');
+  if (timecodeTrack) {
+    const updateScrollProgress = () => {
+      const doc = document.documentElement;
+      const scrollable = doc.scrollHeight - doc.clientHeight;
+      const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+      timecodeTrack.style.setProperty('--scroll-progress', `${progress}%`);
+    };
+    window.addEventListener('scroll', updateScrollProgress, { passive: true });
+    updateScrollProgress();
   }
 });

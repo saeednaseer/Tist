@@ -60,19 +60,19 @@ const siteContent = {
   // ضع اسم العميل الحقيقي وشعاره في مجلد images/clients/ ثم عدّل مسار logo هنا
   // الشعارات تظهر بتدرج رمادي وتتحول لألوانها الحقيقية عند تمرير الفأرة (تأثير معاصر شائع)
   clients: [
-  { name: "عميل 01", logo: "/عملائي/جاهز/client%20(1).png" },
-{ name: "عميل 02", logo: "/عملائي/جاهز/client%20(2).png" },
-{ name: "عميل 03", logo: "/عملائي/جاهز/client%20(3).png" },
-{ name: "عميل 04", logo: "/عملائي/جاهز/client%20(4).png" },
-{ name: "عميل 05", logo: "/عملائي/جاهز/client%20(5).png" },
-{ name: "عميل 06", logo: "/عملائي/جاهز/client%20(6).png" },
-{ name: "عميل 07", logo: "/عملائي/جاهز/client%20(7).png" },
-{ name: "عميل 08", logo: "/عملائي/جاهز/client%20(8).png" },
-{ name: "عميل 09", logo: "/عملائي/جاهز/client%20(9).png" },
-{ name: "عميل 10", logo: "/عملائي/جاهز/client%20(10).png" },
-{ name: "عميل 11", logo: "/عملائي/جاهز/client%20(11).png" },
-{ name: "عميل 12", logo: "/عملائي/جاهز/client%20(12).png" },
-{ name: "عميل 13", logo: "/عملائي/جاهز/client%20(13).png" },
+  { name: "عميل 01", logo: "images/clients/client-01.png" },
+{ name: "عميل 02", logo: "images/clients/client%20(2).png" },
+{ name: "عميل 03", logo: "images/clients/client%20(3).png" },
+{ name: "عميل 04", logo: "images/clients/client%20(4).png" },
+{ name: "عميل 05", logo: "images/clients/client%20(5).png" },
+{ name: "عميل 06", logo: "images/clients/client%20(6).png" },
+{ name: "عميل 07", logo: "images/clients/client%20(7).png" },
+{ name: "عميل 08", logo: "images/clients/client%20(8).png" },
+{ name: "عميل 09", logo: "images/clients/client%20(9).png" },
+{ name: "عميل 10", logo: "images/clients/client%20(10).png" },
+{ name: "عميل 11", logo: "images/clients/client%20(11).png" },
+{ name: "عميل 12", logo: "images/clients/client%20(12).png" },
+{ name: "عميل 13", logo: "images/clients/client%20(13).png" },
 { name: "عميل 14", logo: "/عملائي/جاهز/client%20(14).png" },
 { name: "عميل 15", logo: "/عملائي/جاهز/client%20(15).png" },
 { name: "عميل 16", logo: "/عملائي/جاهز/client%20(16).png" },
@@ -93,8 +93,8 @@ const siteContent = {
 { name: "عميل 31", logo: "/عملائي/جاهز/client%20(31).png" },
 { name: "عميل 32", logo: "/عملائي/جاهز/client%20(32).png" },
 { name: "عميل 33", logo: "/عملائي/جاهز/client%20(33).png" },
-{ name: "عميل 34", logo: "/عملائي/جاهز/client%20(34).png" },
-{ name: "عميل 35", logo: "/عملائي/جاهز/client%20(35).png" }
+{ name: "عميل 34", logo: "images/clients/client%20(34).png" },
+{ name: "عميل 35", logo: "images/clients/client%20(35).png" }
   ],
 
   // -------- تواصل --------

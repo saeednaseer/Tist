@@ -49,7 +49,7 @@ const siteContent = {
   // videoLink: ضع هنا رابط فيديو يوتيوب — الفيديو يشتغل مباشرة داخل الكرت نفسه عند الضغط عليه، بدون نافذة منبثقة
   work: [
     { category: "drone",           title: "تصوير عقاري بالدرون",  desc: "توثيق جوي لمشروع سكني.",              gradient: "linear-gradient(135deg,#9F1F63,#0E0E10)", videoLink: "https://youtu.be/xrvaOONTjOg" },
-    { category: "montage",         title: "مونتاج فيديو",         desc: "إعادة قص وتوليف لمقابلة تلفزيونية.",      gradient: "linear-gradient(135deg,#D91B5C,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
+    { category: "montage",         title: "مونتاج فيديو",         desc: "إعادة قص وتوليف لمقابلة تلفزيونية.",      gradient: "linear-gradient(135deg,#D91B5C,#0E0E10)", videoLink: "https://youtu.be/pBSVYD4oJXM" },
     { category: "real-estate",     title: "جولة عقارية كاملة",    desc: "تغطية شاملة لوحدة سكنية من الداخل والخارج.", gradient: "linear-gradient(135deg,#7A1F4F,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
     { category: "motion-graphics", title: "موشن جرافيك",         desc: "فيديو تعريفي بخدمات شركة.",              gradient: "linear-gradient(135deg,#F7941E,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
     { category: "logo-animation",  title: "تحريك شعار",          desc: "هوية بصرية متحركة لعلامة تجارية.",        gradient: "linear-gradient(135deg,#7A1750,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },

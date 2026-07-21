@@ -421,8 +421,8 @@ h1,h2,h3{ font-family: var(--font-display); margin:0; }
   transition: transform .3s ease, box-shadow .3s ease;
 }
 /* إزاحة رأسية متبادلة بين البطاقات — يعطي إحساس "حائط" حيوي بدل صف مستقيم مسطّح */
-.client-chip:nth-child(even){ transform: translateY(0px); }
-.client-chip:nth-child(3n){ transform: translateY(0px); }
+.client-chip:nth-child(even){ transform: translateY(10px); }
+.client-chip:nth-child(3n){ transform: translateY(-6px); }
 .client-chip::before{
   content:"";
   position:absolute; top:0; inset-inline:0; height:3px;
@@ -438,6 +438,8 @@ h1,h2,h3{ font-family: var(--font-display); margin:0; }
 /* حد أقصى للعرض والارتفاع معًا (وليس فقط "احتواء" داخل الصندوق) — يمنع الشعار العريض جدًا
    من الظهور أكبر بصريًا من الشعار الطولي، فيبقى وزن كل الشعارات متقاربًا مهما اختلفت نسبها */
 .client-chip img{
+  max-width: 75%;
+  max-height: 58%;
   width:auto; height:auto;
   object-fit: contain;
 }

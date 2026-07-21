@@ -177,15 +177,19 @@ h1,h2,h3{ font-family: var(--font-display); margin:0; }
 ========================================================= */
 .hero{ padding-top: 64px; overflow:hidden; }
 .hero__inner{
-  display:grid;
-  grid-template-columns: 1.15fr .85fr;
-  gap: 48px;
+  padding-block: 64px 72px;
+  text-align:center;
+}
+.hero__text{
+  max-width: 760px;
+  margin-inline:auto;
+  display:flex;
+  flex-direction:column;
   align-items:center;
-  padding-block: 40px 56px;
 }
 
 /* دخول متدرّج لعناصر الهيرو عند تحميل الصفحة */
-.hero__text > *, .hero__media{
+.hero__text > *{
   opacity:0;
   transform: translateY(16px);
   animation: heroIn .7s ease forwards;
@@ -195,12 +199,11 @@ h1,h2,h3{ font-family: var(--font-display); margin:0; }
 .hero__text > .hero__role{ animation-delay: .25s; }
 .hero__text > .hero__bio{ animation-delay: .35s; }
 .hero__text > .hero__actions{ animation-delay: .45s; }
-.hero__media{ animation-delay: .3s; }
 @keyframes heroIn{
   to{ opacity:1; transform:none; }
 }
 @media (prefers-reduced-motion: reduce){
-  .hero__text > *, .hero__media{ animation:none; opacity:1; transform:none; }
+  .hero__text > *{ animation:none; opacity:1; transform:none; }
 }
 
 .badge{
@@ -214,28 +217,30 @@ h1,h2,h3{ font-family: var(--font-display); margin:0; }
   margin-bottom: 20px;
 }
 .hero__title{
-  font-size: clamp(2.1rem, 4.4vw, 3.4rem);
+  font-size: clamp(2.4rem, 6vw, 4.6rem);
   font-weight:900;
-  line-height:1.25;
-  margin-bottom: 14px;
+  line-height:1.2;
+  margin-bottom: 16px;
 }
 .accent{ color: var(--accent); }
 .hero__role{
   font-family: var(--font-mono);
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   color: var(--text-muted);
   min-height: 1.6em;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 .role-cursor{ color: var(--accent); animation: blink 1s step-end infinite; }
 @keyframes blink{ 50%{ opacity:0; } }
 
 .hero__bio{
   color: var(--text-muted);
-  max-width: 46ch;
-  margin-bottom: 28px;
+  max-width: 52ch;
+  margin-inline:auto;
+  margin-bottom: 32px;
+  font-size:1.05rem;
 }
-.hero__actions{ display:flex; gap:14px; flex-wrap:wrap; }
+.hero__actions{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
 
 .btn{
   display:inline-flex; align-items:center; gap:8px;
@@ -248,46 +253,6 @@ h1,h2,h3{ font-family: var(--font-display); margin:0; }
 .btn--primary:hover{ transform: translateY(-2px); }
 .btn--ghost{ border: 1px solid var(--border); color: var(--text); }
 .btn--ghost:hover{ border-color: var(--accent); color: var(--accent); }
-
-.hero__media{ display:flex; justify-content:center; }
-.hero__bento{
-  width: min(400px, 85vw);
-  aspect-ratio: 4/5;
-  display:grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  gap: 12px;
-}
-.bento-tile{
-  position:relative;
-  border-radius: var(--radius);
-  padding: 16px;
-  display:flex; flex-direction:column; justify-content:flex-end; gap:8px;
-  overflow:hidden;
-  border: 1px solid rgba(255,255,255,.1);
-  opacity:0; transform: translateY(14px) scale(.96);
-  animation: heroIn .6s ease forwards;
-  transition: transform .25s ease, box-shadow .25s ease;
-}
-.bento-tile:hover{ transform: translateY(-4px); box-shadow: 0 16px 34px -18px rgba(0,0,0,.6); }
-.bento-tile__icon{ font-size: 1.5rem; }
-.bento-tile__title{ font-size:.82rem; font-weight:700; color:#fff; line-height:1.3; }
-
-/* ألوان متنوعة من نفس هوية العلامة لكل بلاطة — تكوين "Bento" حيوي بدل صورة ثابتة */
-.bento-tile--1{ background: linear-gradient(155deg, var(--accent-3), #4a1030); grid-row: span 2; }
-.bento-tile--1 .bento-tile__icon{ font-size: 2.1rem; }
-.bento-tile--2{ background: linear-gradient(155deg, var(--accent-2), #7a4600); }
-.bento-tile--3{ background: linear-gradient(155deg, var(--accent), #6e0f36); }
-.bento-tile--4{ background: rgba(255,255,255,.04); }
-.bento-tile--4 .bento-tile__title{ color: var(--text); }
-.bento-tile--5{ background: linear-gradient(155deg, var(--accent-3), var(--accent)); }
-.bento-tile--6{ background: rgba(255,255,255,.04); }
-.bento-tile--6 .bento-tile__title{ color: var(--text); }
-
-@media (max-width: 460px){
-  .hero__bento{ width: min(320px, 90vw); }
-  .bento-tile__title{ font-size:.74rem; }
-}
 
 /* شريط الإحصائيات */
 .stats-bar{
@@ -319,9 +284,16 @@ h1,h2,h3{ font-family: var(--font-display); margin:0; }
 .markets__label{ font-size:.8rem; color: var(--text-dim); margin-bottom:12px; }
 .markets__row{ display:flex; flex-wrap:wrap; gap:10px; }
 .market-chip{
+  display:inline-flex; align-items:center; gap:8px;
   font-size:.82rem; color: var(--text-muted);
   border:1px solid var(--border); border-radius:999px;
   padding: 6px 14px;
+}
+.market-chip__flag{
+  width:18px; height:13px;
+  object-fit: cover;
+  border-radius:2px;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.12);
 }
 
 /* =========================================================
@@ -429,43 +401,50 @@ h1,h2,h3{ font-family: var(--font-display); margin:0; }
 .work-card__body h3{ font-size:1.05rem; margin-bottom:6px; }
 .work-card__body p{ color: var(--text-muted); font-size:.88rem; margin:0; }
 
-/* العملاء - ماركيه */
-.clients-marquee{
+/* العملاء — شبكة ثابتة (بدون حركة تمرير) بأسلوب "حائط" متعرّج مميّز */
+.clients-grid{
   border-top:1px solid var(--border);
-  overflow:hidden;
-  padding-block: 40px;
-  /* تلاشي ناعم عند طرفي الشريط بدل قطع مفاجئ للشعارات — لمسة احترافية معتادة في عرض شعارات العملاء */
-  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
-  mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+  padding-block: 48px;
+  display:flex; flex-wrap:wrap; justify-content:center;
+  gap: 22px;
 }
-.clients-marquee__track{
-  display:flex; gap: 20px;
-  width: max-content;
-  animation: marquee 36s linear infinite;
-}
-.clients-marquee:hover .clients-marquee__track{ animation-play-state: paused; }
-@keyframes marquee{
-  from{ transform: translateX(0); }
-  to{ transform: translateX(-50%); }
-}
-/* بطاقة بيضاء دائمة خلف كل شعار — تضمن ظهور أي شعار بوضوح مهما كان لونه (فاتح أو غامق) */
+/* بطاقة بيضاء ثابتة خلف كل شعار — تضمن ظهور أي شعار بوضوح مهما كان لونه (فاتح أو غامق) */
 .client-chip{
-  flex: 0 0 auto;
+  position:relative;
   width: 210px; height: 112px;
-  padding: 20px 26px;
+  padding: 18px;
   border-radius: var(--radius);
   background: #F5F3EE;
   box-shadow: 0 14px 30px -16px rgba(0,0,0,.5);
   display:flex; align-items:center; justify-content:center;
-  transition: transform .25s ease, box-shadow .25s ease;
+  overflow:hidden;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+/* إزاحة رأسية متبادلة بين البطاقات — يعطي إحساس "حائط" حيوي بدل صف مستقيم مسطّح */
+.client-chip:nth-child(even){ transform: translateY(10px); }
+.client-chip:nth-child(3n){ transform: translateY(-6px); }
+.client-chip::before{
+  content:"";
+  position:absolute; top:0; inset-inline:0; height:3px;
+  background: var(--gradient-brand);
+  transform: scaleX(0);
+  transition: transform .3s ease;
 }
 .client-chip:hover{
-  transform: translateY(-5px);
+  transform: translateY(-5px) scale(1.03);
   box-shadow: 0 20px 38px -14px rgba(217,27,92,.45);
 }
+.client-chip:hover::before{ transform:none; }
+/* حد أقصى للعرض والارتفاع معًا (وليس فقط "احتواء" داخل الصندوق) — يمنع الشعار العريض جدًا
+   من الظهور أكبر بصريًا من الشعار الطولي، فيبقى وزن كل الشعارات متقاربًا مهما اختلفت نسبها */
 .client-chip img{
-  max-width:100%; max-height:100%;
+  max-width: 75%;
+  max-height: 58%;
+  width:auto; height:auto;
   object-fit: contain;
+}
+@media (prefers-reduced-motion: reduce){
+  .client-chip:nth-child(even), .client-chip:nth-child(3n){ transform:none; }
 }
 
 /* نافذة تشغيل الفيديو (Lightbox) */
@@ -520,11 +499,6 @@ h1,h2,h3{ font-family: var(--font-display); margin:0; }
 .contact h2{ margin-top:10px; }
 .contact p{ color: var(--text-muted); margin-top:16px; margin-bottom:32px; font-size:1.05rem; }
 .contact__actions{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
-
-@media (max-width: 760px){
-  .hero__inner{ grid-template-columns:1fr; }
-  .hero__media{ order:-1; }
-}
 
 /* =========================================================
    الفوتر
@@ -601,4 +575,98 @@ h1,h2,h3{ font-family: var(--font-display); margin:0; }
 a:focus-visible, button:focus-visible{
   outline: 2px solid var(--accent);
   outline-offset: 2px;
+}
+
+/* =========================================================
+   صفحة تصميم الجرافيك (graphic-design.html) — أسلوب تحريري
+   مستوحى من مواقع بورتفوليو عالمية: طباعة جريئة، مساحات بيضاء
+   واسعة، ومعارض أفقية لكل مشروع
+========================================================= */
+.gd-hero{ padding-block: 90px 60px; }
+.gd-statement{
+  font-size: clamp(2.6rem, 7vw, 5.5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  margin-block: 18px 10px;
+  background: var(--gradient-brand);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.gd-substatement{
+  font-family: var(--font-mono);
+  font-size: .95rem;
+  color: var(--text-dim);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.gd-intro{
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 62ch;
+  line-height: 1.9;
+}
+
+/* كل مشروع = قسم كامل بمعرض أفقي قابل للتمرير بأسلوب دراسة حالة */
+.gd-project{ padding-block: 30px 70px; }
+.gd-project--alt{ background: rgba(255,255,255,.02); }
+.gd-project__gallery{
+  display:flex; gap:16px;
+  overflow-x:auto;
+  padding-inline: 24px;
+  padding-bottom: 6px;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+}
+.gd-project__gallery::-webkit-scrollbar{ height:6px; }
+.gd-project__gallery::-webkit-scrollbar-thumb{ background: var(--border); border-radius:99px; }
+.gd-project__frame{
+  flex: 0 0 auto;
+  width: min(76vw, 480px);
+  aspect-ratio: 4/3;
+  border-radius: var(--radius-lg);
+  scroll-snap-align:start;
+  border: 1px solid rgba(255,255,255,.08);
+}
+.gd-project__body{ padding-top: 26px; max-width: 720px; }
+.gd-project__tags{
+  font-family: var(--font-mono);
+  font-size:.78rem; letter-spacing:1px;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+.gd-project__body h2{ font-size: clamp(1.5rem, 3vw, 2.1rem); margin-block: 10px 12px; }
+.gd-project__body p{ color: var(--text-muted); font-size:1.02rem; max-width: 62ch; }
+
+/* شذرات صغيرة — شبكة متنوعة */
+.gd-artifacts{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px,1fr));
+  gap: 16px;
+}
+.gd-artifact{
+  background: rgba(255,255,255,.035);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius);
+  padding: 22px 18px;
+  text-align:center;
+  transition: transform .25s, border-color .25s;
+}
+.gd-artifact:hover{ transform: translateY(-4px); border-color: rgba(217,27,92,.4); }
+.gd-artifact__icon{ font-size:1.8rem; display:block; margin-bottom:10px; }
+.gd-artifact p{ font-size:.85rem; color: var(--text-muted); margin:0; }
+
+.gd-closing{
+  padding-block: 90px;
+  text-align:center;
+  border-top: 1px solid var(--border);
+}
+.gd-closing p{
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight:800;
+  color: var(--text-muted);
+}
+
+@media (max-width: 760px){
+  .gd-project__frame{ width: 82vw; }
 }

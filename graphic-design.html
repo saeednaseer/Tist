@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سعيد ناصر | تصميم جرافيك</title>
+<meta name="description" content="أعمال تصميم جرافيك: هويات بصرية، مطبوعات، وحملات إعلانية.">
+
+<link rel="icon" type="image/png" href="images/logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="timecode-strip" aria-hidden="true">
+  <div class="timecode-strip__track"></div>
+</div>
+
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="سعيد ناصر" class="logo-img">
+    </a>
+    <nav class="nav" id="nav">
+      <a href="index.html">الرئيسية</a>
+      <a href="index.html#about">نبذة</a>
+      <a href="index.html#services">الخدمات</a>
+      <a href="works.html">الأعمال</a>
+      <a href="index.html#clients">العملاء</a>
+      <a href="index.html#contact" class="nav__cta">تواصل معي</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="القائمة" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main class="gd-page">
+
+  <!-- ===================== بيان تحريري كبير ===================== -->
+  <section class="gd-hero">
+    <div class="container">
+      <a href="index.html" class="back-link">→ الرئيسية</a>
+      <span class="eyebrow" id="gdEyebrow">استوديو التصميم</span>
+      <h1 class="gd-statement" id="gdStatement">أصمم؛ إذن أنا موجود</h1>
+      <p class="gd-substatement" id="gdSubStatement">تصميم جرافيك</p>
+      <p class="gd-intro" id="gdIntro"></p>
+    </div>
+  </section>
+
+  <!-- ===================== المشاريع (تُملأ ديناميكياً) ===================== -->
+  <div id="gdProjects"></div>
+
+  <!-- ===================== شذرات وأعمال سريعة ===================== -->
+  <section class="section section--alt gd-artifacts-section">
+    <div class="container">
+      <div class="section__head">
+        <span class="eyebrow">شذرات</span>
+        <h2>لقطات سريعة</h2>
+      </div>
+      <div class="gd-artifacts" id="gdArtifacts"></div>
+    </div>
+  </section>
+
+  <!-- ===================== خاتمة ===================== -->
+  <section class="gd-closing">
+    <div class="container">
+      <p id="gdClosing">شكرًا لزيارة هذا الجزء من أعمالي.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__grid">
+    <div class="footer__about">
+      <img src="images/logo.png" alt="سعيد ناصر" class="logo-img">
+      <p data-content="footerTagline">وصف قصير عنك يظهر في الفوتر.</p>
+      <div class="socials" id="socialsRow"></div>
+    </div>
+    <div class="footer__col">
+      <h4>الصفحات</h4>
+      <ul>
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="works.html">معرض الأعمال</a></li>
+        <li><a href="index.html#contact">تواصل</a></li>
+      </ul>
+    </div>
+    <div class="footer__col">
+      <h4>تواصل معي</h4>
+      <ul>
+        <li><a data-content="phoneDisplay" data-content-attr="whatsappLink:href" href="#">+20 000 000 0000</a></li>
+        <li><a data-content="email" data-content-attr="emailLink:href" href="#">example@email.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer__bottom">
+    <p>© <span id="year"></span> <span data-content="fullName">اسمك</span>. جميع الحقوق محفوظة</p>
+  </div>
+</footer>
+
+<script src="js/content.js"></script>
+<script src="js/main.js"></script>
+<script>
+// عرض محتوى صفحة تصميم الجرافيك — منطق خاص بهذه الصفحة فقط
+document.addEventListener('DOMContentLoaded', () => {
+  const gd = siteContent.graphicDesignPage;
+  if (!gd) return;
+
+  document.getElementById('gdEyebrow').textContent = gd.eyebrow;
+  document.getElementById('gdStatement').textContent = gd.statement;
+  document.getElementById('gdSubStatement').textContent = gd.subStatement;
+  document.getElementById('gdIntro').textContent = gd.intro;
+  document.getElementById('gdClosing').textContent = gd.closing;
+  document.title = `سعيد ناصر | ${gd.subStatement}`;
+
+  const projectsEl = document.getElementById('gdProjects');
+  if (projectsEl && gd.projects) {
+    projectsEl.innerHTML = gd.projects.map((p, i) => `
+      <section class="gd-project ${i % 2 ? 'gd-project--alt' : ''}">
+        <div class="gd-project__gallery">
+          ${p.gallery.map(g => `<div class="gd-project__frame" style="background:${g}"></div>`).join('')}
+        </div>
+        <div class="container gd-project__body">
+          <span class="gd-project__tags">${p.tags}</span>
+          <h2>${p.title}</h2>
+          <p>${p.desc}</p>
+        </div>
+      </section>
+    `).join('');
+  }
+
+  const artifactsEl = document.getElementById('gdArtifacts');
+  if (artifactsEl && gd.artifacts) {
+    artifactsEl.innerHTML = gd.artifacts.map(a => `
+      <div class="gd-artifact reveal">
+        <span class="gd-artifact__icon">${a.icon}</span>
+        <p>${a.caption}</p>
+      </div>
+    `).join('');
+    // إعادة تشغيل ملاحظ الظهور التدريجي لهذه العناصر المضافة حديثًا
+    document.querySelectorAll('.gd-artifact.reveal').forEach(el => {
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) { entry.target.classList.add('in-view'); io.unobserve(entry.target); }
+          });
+        }, { threshold: 0.15 });
+        io.observe(el);
+      } else {
+        el.classList.add('in-view');
+      }
+    });
+  }
+});
+</script>
+</body>
+</html>

@@ -25,7 +25,12 @@ const siteContent = {
   ],
 
   // -------- الأسواق / الدول --------
-  markets: ["مصر", "السعودية", "الإمارات", "الأردن", "عُمان", "الكويت"],
+  markets: [
+    { flag: "images/flags/sa.svg", name: "السعودية" },
+    { flag: "images/flags/kw.svg", name: "الكويت" },
+    { flag: "images/flags/ye.svg", name: "اليمن" },
+    { flag: "images/flags/ly.svg", name: "ليبيا" }
+  ],
 
   // -------- نبذة --------
   aboutText: "أعمل في مجال الإنتاج المرئي منذ أكثر من 10 سنوات، بدأت بالمونتاج وتطوّرت لأشمل التصوير الجوي بالدرون والإنتاج العقاري والموشن جرافيك. أتعامل مع كل مشروع كقصة بصرية كاملة، من اللقطة الأولى إلى الإخراج النهائي، بأسلوب يحافظ على جودة المحتوى وسرعة التسليم.",
@@ -38,7 +43,7 @@ const siteContent = {
     { slug: "drone",          tag: "01", icon: "🛸", title: "تصوير درون",            desc: "زوايا جوية سينمائية توثّق العقار أو الموقع من منظور مختلف تمامًا." },
     { slug: "montage",        tag: "02", icon: "✂️", title: "المونتاج",               desc: "تنظيم اللقطات وضبط الإيقاع لتخرج القصة بصورتها النهائية الاحترافية." },
     { slug: "real-estate",    tag: "03", icon: "🏠", title: "الإنتاج العقاري",         desc: "تغطية متكاملة للوحدات العقارية بأسلوب بصري يسهّل على العميل اتخاذ القرار." },
-    { slug: "motion-graphics",tag: "04", icon: "🎨", title: "موشن جرافيك",             desc: "تحويل المعلومات والأفكار إلى رسائل بصرية بسيطة تصل بسرعة ووضوح." },
+    { slug: "graphic-design", tag: "04", icon: "🎨", title: "تصميم جرافيك",             desc: "هويات بصرية ومطبوعات وتصاميم تحمل بصمة واضحة، من الفكرة إلى التنفيذ النهائي." },
     { slug: "logo-animation", tag: "05", icon: "⚡", title: "تحريك الشعارات",          desc: "إعطاء الهوية البصرية حياة وحركة تترك انطباعًا أول قويًا واحترافيًا." },
     { slug: "tv-programs",    tag: "06", icon: "📺", title: "تصوير البرامج التلفزيونية", desc: "تغطية كاملة للحلقات والبرامج التلفزيونية بجودة تصوير احترافية." }
   ],
@@ -48,10 +53,9 @@ const siteContent = {
   // لون التدرّج يتحكم في خلفية الصورة المصغّرة (يُستخدم فقط إن لم تتوفر صورة مصغّرة حقيقية من رابط يوتيوب صالح)
   // videoLink: ضع هنا رابط فيديو يوتيوب — الفيديو يشتغل مباشرة داخل الكرت نفسه عند الضغط عليه، بدون نافذة منبثقة
   work: [
-    { category: "drone",           title: "تصوير عقاري بالدرون",  desc: "توثيق جوي لمشروع سكني.",              gradient: "linear-gradient(135deg,#9F1F63,#0E0E10)", videoLink: "https://youtu.be/xrvaOONTjOg" },
-    { category: "montage",         title: "مونتاج فيديو",         desc: "إعادة قص وتوليف لمقابلة تلفزيونية.",      gradient: "linear-gradient(135deg,#D91B5C,#0E0E10)", videoLink: "https://youtu.be/pBSVYD4oJXM" },
+    { category: "drone",           title: "تصوير عقاري بالدرون",  desc: "توثيق جوي لمشروع سكني.",              gradient: "linear-gradient(135deg,#9F1F63,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
+    { category: "montage",         title: "مونتاج فيديو",         desc: "إعادة قص وتوليف لمقابلة تلفزيونية.",      gradient: "linear-gradient(135deg,#D91B5C,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
     { category: "real-estate",     title: "جولة عقارية كاملة",    desc: "تغطية شاملة لوحدة سكنية من الداخل والخارج.", gradient: "linear-gradient(135deg,#7A1F4F,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
-    { category: "motion-graphics", title: "موشن جرافيك",         desc: "فيديو تعريفي بخدمات شركة.",              gradient: "linear-gradient(135deg,#F7941E,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
     { category: "logo-animation",  title: "تحريك شعار",          desc: "هوية بصرية متحركة لعلامة تجارية.",        gradient: "linear-gradient(135deg,#7A1750,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
     { category: "tv-programs",     title: "تغطية برنامج تلفزيوني", desc: "تصوير ومونتاج حلقة برنامج كامل.",       gradient: "linear-gradient(135deg,#B0195C,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" }
   ],
@@ -89,5 +93,52 @@ const siteContent = {
     youtube: "https://youtube.com/@username",
     behance: "https://behance.net/username",
     facebook: "https://facebook.com/username"
+  },
+
+  // -------- صفحة "تصميم جرافيك" — أسلوب تحريري مستقل (مستوحى من vanschneider.com) --------
+  // هذه الصفحة (graphic-design.html) مختلفة عن باقي صفحات الأقسام، ومخصّصة لعرض أعمال التصميم
+  // الجرافيكي بأسلوب مجلة/معرض بدل شبكة الفيديوهات المعتادة
+  graphicDesignPage: {
+    eyebrow: "استوديو التصميم",
+    statement: "أصمم؛ إذن أنا موجود",
+    subStatement: "تصميم جرافيك — منذ 2015",
+    intro: "أنا سعيد ناصر، إلى جانب الفيديو والدرون، أصمم هويات بصرية ومطبوعات ومحتوى جرافيكي يحمل بصمة واضحة. هذا النص Placeholder — عدّله من content.js ليحكي أسلوبك الخاص في التصميم.",
+
+    // كل مشروع = قسم كامل بمعرض أفقي قابل للتمرير، يشبه أسلوب دراسات الحالة في المواقع العالمية
+    projects: [
+      {
+        title: "هوية بصرية — مشروع 01",
+        tags: "هوية بصرية، تصميم مطبوعات",
+        desc: "وصف مختصر يشرح فكرة المشروع والحل البصري الذي قدّمته. عدّل هذا النص والصور من content.js.",
+        gallery: [
+          "linear-gradient(135deg,#9F1F63,#1a0d14)",
+          "linear-gradient(135deg,#D91B5C,#1a0d14)",
+          "linear-gradient(135deg,#F7941E,#1a0d14)",
+          "linear-gradient(135deg,#7A1750,#1a0d14)"
+        ]
+      },
+      {
+        title: "حملة مطبوعة — مشروع 02",
+        tags: "تصميم إعلانات، طباعة",
+        desc: "وصف مختصر يشرح فكرة المشروع والحل البصري الذي قدّمته. عدّل هذا النص والصور من content.js.",
+        gallery: [
+          "linear-gradient(135deg,#F7941E,#1a0d14)",
+          "linear-gradient(135deg,#9F1F63,#1a0d14)",
+          "linear-gradient(135deg,#D91B5C,#1a0d14)"
+        ]
+      }
+    ],
+
+    // شذرات/أعمال سريعة بأسلوب "القطع الفنية" — شبكة صغيرة متنوعة أسفل الصفحة
+    artifacts: [
+      { icon: "🎨", caption: "شعار مطبوع بأسلوب تجريبي." },
+      { icon: "📐", caption: "استكشاف بصري لهوية غير منشورة." },
+      { icon: "🖋️", caption: "خط يد مخصّص لمشروع شخصي." },
+      { icon: "🗞️", caption: "تصميم غلاف مطبوعة." },
+      { icon: "🏷️", caption: "بطاقة عمل مصمَّمة يدويًا." },
+      { icon: "🖼️", caption: "ملصق لأحد الفعاليات." }
+    ],
+
+    closing: "شكرًا لزيارة هذا الجزء من أعمالي."
   }
 };

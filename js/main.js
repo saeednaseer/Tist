@@ -62,32 +62,25 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ---------- الأسواق ---------- */
   const marketsRow = document.getElementById('marketsRow');
   if (marketsRow && c.markets) {
-    marketsRow.innerHTML = c.markets.map(m => `<span class="market-chip">${m}</span>`).join('');
+    marketsRow.innerHTML = c.markets.map(m => `<span class="market-chip"><img src="${m.flag}" alt="" class="market-chip__flag">${m.name}</span>`).join('');
   }
 
   /* ---------- الخدمات ---------- */
   const servicesGrid = document.getElementById('servicesGrid');
   if (servicesGrid && c.services) {
-    servicesGrid.innerHTML = c.services.map(s => `
-      <a href="works.html?cat=${encodeURIComponent(s.slug)}" class="service-card reveal">
+    servicesGrid.innerHTML = c.services.map(s => {
+      // قسم "تصميم جرافيك" له صفحة عرض خاصة بأسلوب مختلف (معرض تحريري) بدل شبكة الأعمال المعتادة
+      const href = s.slug === 'graphic-design' ? 'graphic-design.html' : `works.html?cat=${encodeURIComponent(s.slug)}`;
+      return `
+      <a href="${href}" class="service-card reveal">
         <div class="service-card__tag">${s.tag}</div>
         <div class="service-card__icon">${s.icon}</div>
         <h3>${s.title}</h3>
         <p>${s.desc}</p>
         <span class="service-card__more">شاهد أعمال هذا القسم ←</span>
       </a>
-    `).join('');
-  }
-
-  /* ---------- فسيفساء الهيرو (Bento) — بديل الصورة الشخصية، مبني من أقسام الخدمات الفعلية ---------- */
-  const heroBento = document.getElementById('heroBento');
-  if (heroBento && c.services) {
-    heroBento.innerHTML = c.services.slice(0, 6).map((s, i) => `
-      <a href="works.html?cat=${encodeURIComponent(s.slug)}" class="bento-tile bento-tile--${i + 1}" style="animation-delay:${.55 + i * .07}s">
-        <span class="bento-tile__icon">${s.icon}</span>
-        <span class="bento-tile__title">${s.title}</span>
-      </a>
-    `).join('');
+    `;
+    }).join('');
   }
 
   /* ---------- استخراج معرّف فيديو يوتيوب (يُستخدم في الصورة المصغّرة وفي المشغّل) ---------- */
@@ -142,9 +135,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // شريط تصفية بكل الأقسام أعلى الصفحة، مع تمييز القسم الحالي
     const chipsEl = document.getElementById('categoryChips');
     if (chipsEl) {
-      chipsEl.innerHTML = c.services.map(s => `
-        <a href="works.html?cat=${encodeURIComponent(s.slug)}" class="category-chip${s.slug === activeSlug ? ' is-active' : ''}">${s.icon} ${s.title}</a>
-      `).join('') + `<a href="works.html" class="category-chip${!activeSlug ? ' is-active' : ''}">🗂️ كل الأعمال</a>`;
+      chipsEl.innerHTML = c.services.map(s => {
+        const href = s.slug === 'graphic-design' ? 'graphic-design.html' : `works.html?cat=${encodeURIComponent(s.slug)}`;
+        return `<a href="${href}" class="category-chip${s.slug === activeSlug ? ' is-active' : ''}">${s.icon} ${s.title}</a>`;
+      }).join('') + `<a href="works.html" class="category-chip${!activeSlug ? ' is-active' : ''}">🗂️ كل الأعمال</a>`;
     }
 
     const titleEl = document.getElementById('categoryTitle');
@@ -163,15 +157,14 @@ document.addEventListener('DOMContentLoaded', () => {
       : `<p class="category-empty">لا توجد أعمال مضافة في هذا القسم بعد.</p>`;
   }
 
-  /* ---------- العملاء (ماركيه بتكرار مزدوج للحركة السلسة) ---------- */
-  const clientsTrack = document.getElementById('clientsTrack');
-  if (clientsTrack && c.clients) {
-    const chips = c.clients.map(client => `
-      <span class="client-chip">
-        <img src="${client.logo}" alt="${client.name}" loading="lazy">
+  /* ---------- العملاء (شبكة ثابتة بدخول متدرّج) ---------- */
+  const clientsGrid = document.getElementById('clientsGrid');
+  if (clientsGrid && c.clients) {
+    clientsGrid.innerHTML = c.clients.map((client, i) => `
+      <span class="client-chip reveal" style="animation-delay:${i * 0.06}s">
+        <img src="${client.logo}" alt="${client.name}">
       </span>
     `).join('');
-    clientsTrack.innerHTML = chips + chips;
   }
 
   /* ---------- أيقونات السوشيال ميديا ---------- */

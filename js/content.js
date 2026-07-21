@@ -56,7 +56,10 @@ const siteContent = {
     { category: "drone",           title: "تصوير عقاري بالدرون",  desc: "توثيق جوي لمشروع سكني.",              gradient: "linear-gradient(135deg,#9F1F63,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
     { category: "montage",         title: "مونتاج فيديو",         desc: "إعادة قص وتوليف لمقابلة تلفزيونية.",      gradient: "linear-gradient(135deg,#D91B5C,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
     { category: "real-estate",     title: "جولة عقارية كاملة",    desc: "تغطية شاملة لوحدة سكنية من الداخل والخارج.", gradient: "linear-gradient(135deg,#7A1F4F,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
-    { category: "logo-animation",  title: "تحريك شعار",          desc: "هوية بصرية متحركة لعلامة تجارية.",        gradient: "linear-gradient(135deg,#7A1750,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
+    { category: "logo-animation",  title: "تحريك شعار",          desc: "هوية بصرية متحركة لعلامة تجارية.",        gradient: "linear-gradient(135deg,#7A1750,#0E0E10)", videoLink: "https://youtu.be/ZdFH25f33Io"
+    , videoLink: "https://youtu.be/T0qjO2n1MD4"
+    , videoLink: "https://youtu.be/l5TJtVsIVoI" },
+     
     { category: "tv-programs",     title: "تغطية برنامج تلفزيوني", desc: "تصوير ومونتاج حلقة برنامج كامل.",       gradient: "linear-gradient(135deg,#B0195C,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" }
   ],
 

@@ -449,8 +449,8 @@ h1,h2,h3{ font-family: var(--font-display); margin:0; }
 /* حد أقصى للعرض والارتفاع معًا (وليس فقط "احتواء" داخل الصندوق) — يمنع الشعار العريض جدًا
    من الظهور أكبر بصريًا من الشعار الطولي، فيبقى وزن كل الشعارات متقاربًا مهما اختلفت نسبها */
 .client-chip img{
-  max-width: 90%;
-  max-height: 80%;
+  max-width: 95%;
+  max-height: 95%;
   width:auto; height:auto;
   object-fit: contain;
 }

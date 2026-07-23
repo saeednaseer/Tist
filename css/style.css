@@ -445,41 +445,17 @@ h1,h2,h3{ font-family: var(--font-display); margin:0; }
   transform: translateY(-5px) scale(1.03);
   box-shadow: 0 20px 38px -14px rgba(217,27,92,.45);
 }
-.client-chip{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
+.client-chip:hover::before{ transform:none; }
+/* حد أقصى للعرض والارتفاع معًا (وليس فقط "احتواء" داخل الصندوق) — يمنع الشعار العريض جدًا
+   من الظهور أكبر بصريًا من الشعار الطولي، فيبقى وزن كل الشعارات متقاربًا مهما اختلفت نسبها */
 .client-chip img{
-  width: auto;
-  height: auto;
-
-  /* يجعل جميع الشعارات ضمن نفس المساحة */
-  max-width: 80%;
-  max-height: 55%;
-
+  max-width: 75%;
+  max-height: 58%;
+  width:auto; height:auto;
   object-fit: contain;
-  transition: transform .3s ease;
 }
-
-.client-chip:hover img{
-  transform: scale(1.05);
-}
-
-.client-chip:hover::before{
-  transform: none;
-}
-
 @media (prefers-reduced-motion: reduce){
-  .client-chip:nth-child(even),
-  .client-chip:nth-child(3n){
-    transform:none;
-  }
-
-  .client-chip img{
-    transition:none;
-  }
+  .client-chip:nth-child(even), .client-chip:nth-child(3n){ transform:none; }
 }
 
 /* نافذة تشغيل الفيديو (Lightbox) */

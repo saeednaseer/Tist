@@ -59,10 +59,18 @@ const siteContent = {
   // لون التدرّج يتحكم في خلفية الصورة المصغّرة (يُستخدم فقط إن لم تتوفر صورة مصغّرة حقيقية من رابط يوتيوب صالح)
   // videoLink: ضع هنا رابط فيديو يوتيوب — الفيديو يشتغل مباشرة داخل نافذة منبثقة عند الضغط على الكرت
   work: [
-    { category: "drone",           featured: true, title: "تصوير عقاري بالدرون",  desc: "توثيق جوي لمشروع سكني.",              gradient: "linear-gradient(135deg,#9F1F63,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
-    { category: "montage",         featured: true, title: "مونتاج فيديو",         desc: "إعادة قص وتوليف لمقابلة تلفزيونية.",      gradient: "linear-gradient(135deg,#D91B5C,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
-    { category: "real-estate",     featured: true, title: "جولة عقارية كاملة",    desc: "تغطية شاملة لوحدة سكنية من الداخل والخارج.", gradient: "linear-gradient(135deg,#7A1F4F,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
-    { category: "logo-animation",  featured: true, title: "تحريك شعار",          desc: "هوية بصرية متحركة لعلامة تجارية.",        gradient: "linear-gradient(135deg,#7A1750,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
+    { category: "drone",           featured: true, title: "تصوير عقاري بالدرون",  desc: "توثيق جوي لمشروع سكني.",              gradient: "linear-gradient(135deg,#9F1F63,#0E0E10)", videoLink: "https://youtu.be/CDRoJKS6KUc" },
+ { category: "drone",           featured: true, title: "تصوير عقاري بالدرون",  desc: "توثيق جوي لمشروع سكني.",              gradient: "linear-gradient(135deg,#9F1F63,#0E0E10)", videoLink: "https://youtu.be/pBSVYD4oJXM" },
+     
+    { category: "montage",         featured: true, title: "مونتاج فيديو",         desc: "إعادة قص وتوليف لمقابلة تلفزيونية.",      gradient: "linear-gradient(135deg,#D91B5C,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=4Tg4lNx5Fi0" },
+      { category: "montage",         featured: true, title: "مونتاج فيديو",         desc: "إعادة قص وتوليف لمقابلة تلفزيونية.",      gradient: "linear-gradient(135deg,#D91B5C,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=iq0DZSrf1vo" },
+     
+    { category: "real-estate",     featured: true, title: "جولة عقارية كاملة",    desc: "تغطية شاملة لوحدة سكنية من الداخل والخارج.", gradient: "linear-gradient(135deg,#7A1F4F,#0E0E10)", videoLink: "https://youtu.be/vWaPPHRjxgg" },
+     
+    { category: "logo-animation",  featured: true, title: "تحريك شعار",          desc: "هوية بصرية متحركة لعلامة تجارية.",        gradient: "linear-gradient(135deg,#7A1750,#0E0E10)", videoLink: "https://youtu.be/l5TJtVsIVoI" },
+         { category: "logo-animation",  featured: true, title: "تحريك شعار",          desc: "هوية بصرية متحركة لعلامة تجارية.",        gradient: "linear-gradient(135deg,#7A1750,#0E0E10)", videoLink: "https://youtu.be/T0qjO2n1MD4" },
+         { category: "logo-animation",  featured: true, title: "تحريك شعار",          desc: "هوية بصرية متحركة لعلامة تجارية.",        gradient: "linear-gradient(135deg,#7A1750,#0E0E10)", videoLink: "https://youtu.be/gzU9MwPhWoI" },
+     
     { category: "tv-programs",     featured: true, title: "تغطية برنامج تلفزيوني", desc: "تصوير ومونتاج حلقة برنامج كامل.",       gradient: "linear-gradient(135deg,#B0195C,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" }
   ],
 
@@ -110,21 +118,21 @@ const siteContent = {
   // -------- تواصل --------
   contactTitle: "لنبدأ مشروعك القادم",
   contactText: "عندك عقار، حدث، أو فكرة تحتاج محتوى مرئي احترافي؟ تواصل معي لنحوّلها إلى عمل جاهز للنشر.",
-  whatsappLink: "https://wa.me/200000000000",
+  whatsappLink: "https://wa.me/966510798388",
 
   // -------- الفوتر --------
   footerTagline: "مصور درون ومونتير، متخصص في الإنتاج العقاري والتصميم الجرافيكي.",
-  phoneDisplay: "+20 000 000 0000",
-  email: "example@email.com",
-  emailLink: "mailto:example@email.com",
+  phoneDisplay: "+9660510798388",
+  email: "snb135@hotmail.com",
+  emailLink: "mailto:snb135@hotmail.com",
 
   // روابط السوشيال ميديا — اترك أي رابط فارغًا "" إن لم ترغب بظهور أيقونته
   socials: {
     linkedin: "https://linkedin.com/in/username",
-    instagram: "https://instagram.com/username",
-    tiktok: "https://tiktok.com/@username",
-    youtube: "https://youtube.com/@username",
-    behance: "https://behance.net/username",
+    instagram: "https://instagram.com/s.n.b1",
+    tiktok: "https://tiktok.com/@s.n.b135",
+    youtube: "https://youtube.com/@SNBMontage",
+    behance: "https://behance.net/snb_135",
     facebook: "https://facebook.com/username"
   },
 

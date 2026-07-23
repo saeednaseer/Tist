@@ -7,14 +7,14 @@ const siteContent = {
 
   // -------- بيانات عامة --------
   pageTitle: "سعيد ناصر | مصور درون ومونتاج ومنتج عقاري",
-  pageDescription: "تصوير درون، مونتاج، إنتاج عقاري، موشن جرافيك، تحريك شعارات، وتصوير برامج تلفزيونية.",
+  pageDescription: "تصوير درون، مونتاج، إنتاج عقاري، تصميم جرافيك، تحريك شعارات، وتصوير برامج تلفزيونية.",
   fullName: "سعيد ناصر",
   experienceBadge: "+10 سنوات خبرة",
 
   // العناوين الوظيفية اللي تتبدّل بأنيميشن الكتابة في الهيرو
-  roles: ["مصور درون", "مونتير فيديو", "منتج عقاري", "مصمم موشن جرافيك"],
+  roles: ["مصور درون", "مونتير فيديو", "منتج عقاري", "مصمم جرافيك"],
 
-  bio: "أوثّق العقارات والمشاريع والبرامج التلفزيونية بعدسة الدرون وأدوات المونتاج والموشن جرافيك، وأحوّل الفكرة الخام إلى محتوى بصري جاهز للنشر.",
+  bio: "أوثّق العقارات والمشاريع والبرامج التلفزيونية بعدسة الدرون، وأحوّل الفكرة الخام إلى محتوى بصري جاهز للنشر عبر المونتاج والتصميم الجرافيكي.",
 
   // -------- الإحصائيات (شريط التايم كود) --------
   stats: [
@@ -33,7 +33,7 @@ const siteContent = {
   ],
 
   // -------- نبذة --------
-  aboutText: "أعمل في مجال الإنتاج المرئي منذ أكثر من 10 سنوات، بدأت بالمونتاج وتطوّرت لأشمل التصوير الجوي بالدرون والإنتاج العقاري والموشن جرافيك. أتعامل مع كل مشروع كقصة بصرية كاملة، من اللقطة الأولى إلى الإخراج النهائي، بأسلوب يحافظ على جودة المحتوى وسرعة التسليم.",
+  aboutText: "بدأت رحلتي في المونتاج قبل أكثر من 10 سنوات، وتوسّع مجالي تدريجيًا مع دخول الدرون كأداة أساسية في التصوير العقاري والتلفزيوني. أؤمن إن أي مشروع مهما كان بسيطًا يستحق نفس الاهتمام بالتفاصيل — من زاوية اللقطة إلى آخر قصّة في المونتاج. هذا ما يميّز أسلوبي: سرعة في التسليم دون التنازل عن الجودة.",
 
   // -------- الخدمات --------
   // slug: يُستخدم للربط بصفحة أعمال هذا القسم تحديدًا (works.html?cat=slug)
@@ -52,55 +52,32 @@ const siteContent = {
   // category: لازم تطابق أحد قيم slug في مصفوفة services بالأعلى — بيها يتحدد في أي صفحة قسم يظهر هذا العمل
   // لون التدرّج يتحكم في خلفية الصورة المصغّرة (يُستخدم فقط إن لم تتوفر صورة مصغّرة حقيقية من رابط يوتيوب صالح)
   // videoLink: ضع هنا رابط فيديو يوتيوب — الفيديو يشتغل مباشرة داخل الكرت نفسه عند الضغط عليه، بدون نافذة منبثقة
+  // -------- الأعمال / المعرض --------
+  // category: لازم تطابق أحد قيم slug في مصفوفة services بالأعلى — بيها يتحدد في أي صفحة قسم يظهر هذا العمل
+  // featured: true → يظهر في "شاهد أعمالي" بالصفحة الرئيسية (اجعلها true لأفضل 6-8 أعمال فقط، كواجهة مختارة)
+  // كل عمل يظهر دائمًا في صفحة قسمه بـ works.html بغض النظر عن featured — القيمة دي فقط تتحكم بالصفحة الرئيسية
+  // لون التدرّج يتحكم في خلفية الصورة المصغّرة (يُستخدم فقط إن لم تتوفر صورة مصغّرة حقيقية من رابط يوتيوب صالح)
+  // videoLink: ضع هنا رابط فيديو يوتيوب — الفيديو يشتغل مباشرة داخل نافذة منبثقة عند الضغط على الكرت
   work: [
-    { category: "drone",           title: "تصوير عقاري بالدرون",  desc: "توثيق جوي لمشروع سكني.",              gradient: "linear-gradient(135deg,#9F1F63,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
-    { category: "montage",         title: "مونتاج فيديو",         desc: "إعادة قص وتوليف لمقابلة تلفزيونية.",      gradient: "linear-gradient(135deg,#D91B5C,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
-    { category: "real-estate",     title: "جولة عقارية كاملة",    desc: "تغطية شاملة لوحدة سكنية من الداخل والخارج.", gradient: "linear-gradient(135deg,#7A1F4F,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
-    { category: "logo-animation",  title: "تحريك شعار",          desc: "هوية بصرية متحركة لعلامة تجارية.",        gradient: "linear-gradient(135deg,#7A1750,#0E0E10)", videoLink: "https://youtu.be/ZdFH25f33Io" },
-         { category: "logo-animation",  title: "تحريك شعار",          desc: "هوية بصرية متحركة لعلامة تجارية.",        gradient: "linear-gradient(135deg,#7A1750,#0E0E10)", videoLink: "https://youtu.be/T0qjO2n1MD4" },
-         { category: "logo-animation",  title: "تحريك شعار",          desc: "هوية بصرية متحركة لعلامة تجارية.",        gradient: "linear-gradient(135deg,#7A1750,#0E0E10)", videoLink: "https://youtu.be/l5TJtVsIVoI" },
-    { category: "tv-programs",     title: "تغطية برنامج تلفزيوني", desc: "تصوير ومونتاج حلقة برنامج كامل.",       gradient: "linear-gradient(135deg,#B0195C,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" }
+    { category: "drone",           featured: true, title: "تصوير عقاري بالدرون",  desc: "توثيق جوي لمشروع سكني.",              gradient: "linear-gradient(135deg,#9F1F63,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
+    { category: "montage",         featured: true, title: "مونتاج فيديو",         desc: "إعادة قص وتوليف لمقابلة تلفزيونية.",      gradient: "linear-gradient(135deg,#D91B5C,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
+    { category: "real-estate",     featured: true, title: "جولة عقارية كاملة",    desc: "تغطية شاملة لوحدة سكنية من الداخل والخارج.", gradient: "linear-gradient(135deg,#7A1F4F,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
+    { category: "logo-animation",  featured: true, title: "تحريك شعار",          desc: "هوية بصرية متحركة لعلامة تجارية.",        gradient: "linear-gradient(135deg,#7A1750,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" },
+    { category: "tv-programs",     featured: true, title: "تغطية برنامج تلفزيوني", desc: "تصوير ومونتاج حلقة برنامج كامل.",       gradient: "linear-gradient(135deg,#B0195C,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" }
   ],
 
   // -------- العملاء --------
   // ضع اسم العميل الحقيقي وشعاره في مجلد images/clients/ ثم عدّل مسار logo هنا
   // الشعارات تظهر بتدرج رمادي وتتحول لألوانها الحقيقية عند تمرير الفأرة (تأثير معاصر شائع)
   clients: [
-  { name: "عميل 01", logo: "images/clients/client%20(1).png" },
-{ name: "عميل 02", logo: "images/clients/client%20(2).png" },
-{ name: "عميل 03", logo: "images/clients/client%20(3).png" },
-{ name: "عميل 04", logo: "images/clients/client%20(4).png" },
-{ name: "عميل 05", logo: "images/clients/client%20(5).png" },
-{ name: "عميل 06", logo: "images/clients/client%20(6).png" },
-{ name: "عميل 07", logo: "images/clients/client%20(7).png" },
-{ name: "عميل 08", logo: "images/clients/client%20(8).png" },
-{ name: "عميل 09", logo: "images/clients/client%20(9).png" },
-{ name: "عميل 10", logo: "images/clients/client%20(10).png" },
-{ name: "عميل 11", logo: "images/clients/client%20(11).png" },
-{ name: "عميل 12", logo: "images/clients/client%20(12).png" },
-{ name: "عميل 13", logo: "images/clients/client%20(13).png" },
-{ name: "عميل 14", logo: "images/clients/client%20(14).png" },
-{ name: "عميل 15", logo: "images/clients/client%20(15).png" },
-{ name: "عميل 16", logo: "images/clients/client%20(16).png" },
-{ name: "عميل 17", logo: "images/clients/client%20(17).png" },
-{ name: "عميل 18", logo: "images/clients/client%20(18).png" },
-{ name: "عميل 19", logo: "images/clients/client%20(19).png" },
-{ name: "عميل 20", logo: "images/clients/client%20(20).png" },
-{ name: "عميل 21", logo: "images/clients/client%20(21).png" },
-{ name: "عميل 22", logo: "images/clients/client%20(22).png" },
-{ name: "عميل 23", logo: "images/clients/client%20(23).png" },
-{ name: "عميل 24", logo: "images/clients/client%20(24).png" },
-{ name: "عميل 25", logo: "images/clients/client%20(25).png" },
-{ name: "عميل 26", logo: "images/clients/client%20(26).png" },
-{ name: "عميل 27", logo: "images/clients/client%20(27).png" },
-{ name: "عميل 28", logo: "images/clients/client%20(28).png" },
-{ name: "عميل 29", logo: "images/clients/client%20(29).png" },
-{ name: "عميل 30", logo: "images/clients/client%20(30).png" },
-{ name: "عميل 31", logo: "images/clients/client%20(31).png" },
-{ name: "عميل 32", logo: "images/clients/client%20(32).png" },
-{ name: "عميل 33", logo: "images/clients/client%20(33).png" },
-{ name: "عميل 34", logo: "images/clients/client%20(34).png" },
-{ name: "عميل 35", logo: "images/clients/client%20(35).png" }
+    { name: "عميل 01", logo: "images/clients/client-01.png" },
+    { name: "عميل 02", logo: "images/clients/client-02.png" },
+    { name: "عميل 03", logo: "images/clients/client-03.png" },
+    { name: "عميل 04", logo: "images/clients/client-04.png" },
+    { name: "عميل 05", logo: "images/clients/client-05.png" },
+    { name: "عميل 06", logo: "images/clients/client-06.png" },
+    { name: "عميل 07", logo: "images/clients/client-07.png" },
+    { name: "عميل 08", logo: "images/clients/client-08.png" }
   ],
 
   // -------- تواصل --------
@@ -109,7 +86,7 @@ const siteContent = {
   whatsappLink: "https://wa.me/200000000000",
 
   // -------- الفوتر --------
-  footerTagline: "مصور درون ومونتير، متخصص في الإنتاج العقاري والموشن جرافيك.",
+  footerTagline: "مصور درون ومونتير، متخصص في الإنتاج العقاري والتصميم الجرافيكي.",
   phoneDisplay: "+20 000 000 0000",
   email: "example@email.com",
   emailLink: "mailto:example@email.com",

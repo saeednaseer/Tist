@@ -358,6 +358,10 @@ h1,h2,h3{ font-family: var(--font-display); margin:0; }
   grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
   gap: 22px;
 }
+.work-viewall{
+  display:flex; justify-content:center;
+  margin-top: 36px;
+}
 .work-card{
   display:flex;
   flex-direction:column;
@@ -401,18 +405,23 @@ h1,h2,h3{ font-family: var(--font-display); margin:0; }
 .work-card__body h3{ font-size:1.05rem; margin-bottom:6px; }
 .work-card__body p{ color: var(--text-muted); font-size:.88rem; margin:0; }
 
-/* العملاء — شبكة ثابتة (بدون حركة تمرير) بأسلوب "حائط" متعرّج مميّز */
+/* العملاء — شبكة متجاوبة (بدون حركة تمرير) بأسلوب "حائط" متعرّج مميّز
+   Grid بدل flex+عرض ثابت: يعيد التدفّق تلقائيًا لعدة أعمدة حتى على الشاشات الضيقة،
+   بدل أن يتحول لعمود طويل واحد على الجوال */
 .clients-grid{
   border-top:1px solid var(--border);
   padding-block: 48px;
-  display:flex; flex-wrap:wrap; justify-content:center;
-  gap: 22px;
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 16px;
+  max-width: 980px;
+  margin-inline:auto;
 }
 /* بطاقة بيضاء ثابتة خلف كل شعار — تضمن ظهور أي شعار بوضوح مهما كان لونه (فاتح أو غامق) */
 .client-chip{
   position:relative;
-  width: 210px; height: 112px;
-  padding: 18px;
+  aspect-ratio: 2 / 1.05;
+  padding: 14px;
   border-radius: var(--radius);
   background: #F5F3EE;
   box-shadow: 0 14px 30px -16px rgba(0,0,0,.5);
@@ -420,9 +429,11 @@ h1,h2,h3{ font-family: var(--font-display); margin:0; }
   overflow:hidden;
   transition: transform .3s ease, box-shadow .3s ease;
 }
-/* إزاحة رأسية متبادلة بين البطاقات — يعطي إحساس "حائط" حيوي بدل صف مستقيم مسطّح */
-.client-chip:nth-child(even){ transform: translateY(10px); }
-.client-chip:nth-child(3n){ transform: translateY(-6px); }
+/* إزاحة رأسية متبادلة بين البطاقات — يعطي إحساس "حائط" حيوي بدل صف مستقيم مسطّح (للشاشات الأعرض فقط) */
+@media (min-width: 640px){
+  .client-chip:nth-child(even){ transform: translateY(10px); }
+  .client-chip:nth-child(3n){ transform: translateY(-6px); }
+}
 .client-chip::before{
   content:"";
   position:absolute; top:0; inset-inline:0; height:3px;

@@ -119,10 +119,13 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
   }
 
-  /* ---------- الأعمال (الصفحة الرئيسية) ---------- */
+  /* ---------- الأعمال (الصفحة الرئيسية) — مختارات فقط، وليس كل الأعمال ---------- */
   const workGrid = document.getElementById('workGrid');
   if (workGrid && c.work) {
-    workGrid.innerHTML = c.work.map(renderWorkCard).join('');
+    // تُعرض هنا العناصر المعلَّمة featured:true فقط (بحد أقصى 8)، حتى لو كانت مصفوفة work كلها تحتوي عشرات الأعمال
+    // بقية الأعمال تظهر كاملة في صفحة القسم الخاصة بها عبر works.html
+    const featured = c.work.filter(w => w.featured).slice(0, 8);
+    workGrid.innerHTML = (featured.length ? featured : c.work.slice(0, 8)).map(renderWorkCard).join('');
   }
 
   /* ---------- صفحة الأعمال المفلترة حسب القسم (works.html?cat=slug) ---------- */

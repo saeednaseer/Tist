@@ -59,19 +59,29 @@ const siteContent = {
   // لون التدرّج يتحكم في خلفية الصورة المصغّرة (يُستخدم فقط إن لم تتوفر صورة مصغّرة حقيقية من رابط يوتيوب صالح)
   // videoLink: ضع هنا رابط فيديو يوتيوب — الفيديو يشتغل مباشرة داخل نافذة منبثقة عند الضغط على الكرت
   work: [
-    { category: "drone",           featured: true, title: "تصوير عقاري بالدرون",  desc: "توثيق جوي لمشروع سكني.",              gradient: "linear-gradient(135deg,#9F1F63,#0E0E10)", videoLink: "https://youtu.be/CDRoJKS6KUc" },
- { category: "drone",           featured: true, title: "تصوير عقاري بالدرون",  desc: "توثيق جوي لمشروع سكني.",              gradient: "linear-gradient(135deg,#9F1F63,#0E0E10)", videoLink: "https://youtu.be/pBSVYD4oJXM" },
+    { category: "drone",           featured: true, title: "تصوير عقاري بالدرون",  desc: "توثيق جوي لمشروع مستودعات.",              gradient: "linear-gradient(135deg,#9F1F63,#0E0E10)", videoLink: "https://youtu.be/CDRoJKS6KUc" },
+ { category: "drone",           featured: true, title: "تصوير عقاري بالدرون",  desc: "توثيق اعلان لإستراحة للبيع.",              gradient: "linear-gradient(135deg,#9F1F63,#0E0E10)", videoLink: "https://youtu.be/pBSVYD4oJXM" },
+{ category: "drone",           featured: true, title: "برنامج خريف حوف | تصوير جوي بالدرون",  desc: "برنامج خريف حوف، يوثق المشاهد الطبيعية الخلابة من منظور جوي يبرز جمال المكان وتفاصيله.",              gradient: "linear-gradient(135deg,#9F1F63,#0E0E10)", videoLink: "https://www.youtube.com/playlist?list=PLV8U2ls1d3am7iptTHoC69i4fZz4PYirH" },
+     { category: "drone",           featured: true, title: "على خطى المحضار | تصوير جوي بالدرون",  desc: "عمل يوثق المسيرة الفنية للفنان حسين أبو بكر المحضار، من خلال لقطات جوية استعرضت أبرز المناطق التي تغنى بها وألهمت أعماله.",              gradient: "linear-gradient(135deg,#9F1F63,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=4D01Br4q8ZY&list=PLZz0Fdf56G7RMz39OW8DYBDI7e0ew5cSy&index=8" },
+     { category: "drone",           featured: true, title: "برنامج نجم البدلة | تصوير جوي بالدرون",  desc: "عمل يوثق سواحل حضرموت بلقطات جوية احترافية، ويستعرض التجارب السياحية والحياة اليومية للسكان.",              gradient: "linear-gradient(135deg,#9F1F63,#0E0E10)", videoLink: "https://youtu.be/pBSVYD4oJXM" },
+     { category: "drone",           featured: true, title: إعلان قاعة أفراح | التصوير السينمائي",  desc: "تنفيذ تصوير احترافي لإعلان ترويجي يبرز هوية القاعة، تفاصيلها، والأجواء المميزة للمناسبات.",              gradient: "linear-gradient(135deg,#9F1F63,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=jRrol528fCQ" },
      
-    { category: "montage",         featured: true, title: "مونتاج فيديو",         desc: "إعادة قص وتوليف لمقابلة تلفزيونية.",      gradient: "linear-gradient(135deg,#D91B5C,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=4Tg4lNx5Fi0" },
-      { category: "montage",         featured: true, title: "مونتاج فيديو",         desc: "إعادة قص وتوليف لمقابلة تلفزيونية.",      gradient: "linear-gradient(135deg,#D91B5C,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=iq0DZSrf1vo" },
+     
+    { category: "montage",         featured: true, title: "الذاكرة الحضرمية | مونتاج",         desc: "مونتاج برنامج يوثق العادات والتقاليد الحضرمية في رمضان، ويبرز الموروث الثقافي بأسلوب بصري متناسق وجذاب.",      gradient: "linear-gradient(135deg,#D91B5C,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=4Tg4lNx5Fi0" },
+      { category: "montage",         featured: true, title: "قصة نجاح | براند حواج",         desc: "مونتاج تقرير يوثق قصة نجاح براند حواج، بأسلوب بصري يبرز رحلة العلامة التجارية، وإنجازاتها، وتأثيرها في السوق.",      gradient: "linear-gradient(135deg,#D91B5C,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=iq0DZSrf1vo" },
      
     { category: "real-estate",     featured: true, title: "جولة عقارية كاملة",    desc: "تغطية شاملة لوحدة سكنية من الداخل والخارج.", gradient: "linear-gradient(135deg,#7A1F4F,#0E0E10)", videoLink: "https://youtu.be/vWaPPHRjxgg" },
+         { category: "real-estate",     featured: true, title: "إعلان للإيجار | تصوير ومونتاج",    desc: "تصوير ومونتاج إعلان احترافي يبرز مميزات المستودعات وجاهزيتها للإيجار.", gradient: "linear-gradient(135deg,#7A1F4F,#0E0E10)", videoLink: "https://youtu.be/xrvaOONTjOg" },
      
-    { category: "logo-animation",  featured: true, title: "تحريك شعار",          desc: "هوية بصرية متحركة لعلامة تجارية.",        gradient: "linear-gradient(135deg,#7A1750,#0E0E10)", videoLink: "https://youtu.be/l5TJtVsIVoI" },
-         { category: "logo-animation",  featured: true, title: "تحريك شعار",          desc: "هوية بصرية متحركة لعلامة تجارية.",        gradient: "linear-gradient(135deg,#7A1750,#0E0E10)", videoLink: "https://youtu.be/T0qjO2n1MD4" },
-         { category: "logo-animation",  featured: true, title: "تحريك شعار",          desc: "هوية بصرية متحركة لعلامة تجارية.",        gradient: "linear-gradient(135deg,#7A1750,#0E0E10)", videoLink: "https://youtu.be/gzU9MwPhWoI" },
+    { category: "logo-animation",  featured: true, title: "تحريك شعار | أستديو مسهور (الإصدار الأول)",          desc: "تنفيذ موشن جرافيك لشعار أستديو مسهور بأسلوب احترافي يعكس هوية البرنامج ويمنحه حضورًا بصريًا مميزًا..",        gradient: "linear-gradient(135deg,#7A1750,#0E0E10)", videoLink: "https://youtu.be/l5TJtVsIVoI" },
+         { category: "logo-animation",  featured: true, title: "تحريك شعار | برنامج أستديو (الإصدار الثاني)",          desc: "نسخة حديثة لتحريك شعار أستديو مسهور، بتصميم حركي مختلف يواكب هوية البرنامج ويضيف لمسة بصرية متجددة.",        gradient: "linear-gradient(135deg,#7A1750,#0E0E10)", videoLink: "https://youtu.be/T0qjO2n1MD4" },
+         { category: "logo-animation",  featured: true, title: "تحريك شعار | تلفزيون حضرموت",          desc: "تصميم وتنفيذ موشن جرافيك لشعار تلفزيون حضرموت، بأسلوب احترافي يعزز الهوية البصرية ويمنح الشعار حركة عصرية وجذابة.",        gradient: "linear-gradient(135deg,#7A1750,#0E0E10)", videoLink: "https://youtu.be/gzU9MwPhWoI" },
      
-    { category: "tv-programs",     featured: true, title: "تغطية برنامج تلفزيوني", desc: "تصوير ومونتاج حلقة برنامج كامل.",       gradient: "linear-gradient(135deg,#B0195C,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=XXXXXXXXXXX" }
+    { category: "tv-programs",     featured: true, title: "برنامج أرياف | تصوير", desc: "تصوير سلسلة وثائقية من 10 حلقات تستعرض أرياف ساحل حضرموت، وتبرز جمال الطبيعة والحياة الريفية.",       gradient: "linear-gradient(135deg,#B0195C,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=MVmPv1dS6no&list=PLV8U2ls1d3amibuUTwOtYJuw2pX3722V9" },
+      { category: "tv-programs",     featured: true, title: "أنشودة ميزنا الله | تصوير", desc: "تنفيذ التصوير لأنشودة "ميزنا الله" بأسلوب بصري يعزز الرسالة ويبرز المشاهد بإخراج متناسق وجودة احترافية.",       gradient: "linear-gradient(135deg,#B0195C,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=MKKHxBMYhO8" }
+
+
+     
   ],
 
   // -------- العملاء --------

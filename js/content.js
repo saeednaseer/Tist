@@ -78,7 +78,7 @@ const siteContent = {
          { category: "logo-animation",  featured: true, title: "تحريك شعار | تلفزيون حضرموت",          desc: "تصميم وتنفيذ موشن جرافيك لشعار تلفزيون حضرموت، بأسلوب احترافي يعزز الهوية البصرية ويمنح الشعار حركة عصرية وجذابة.",        gradient: "linear-gradient(135deg,#7A1750,#0E0E10)", videoLink: "https://youtu.be/gzU9MwPhWoI" },
      
     { category: "tv-programs",     featured: true, title: "برنامج أرياف | تصوير", desc: "تصوير سلسلة وثائقية من 10 حلقات تستعرض أرياف ساحل حضرموت، وتبرز جمال الطبيعة والحياة الريفية.",       gradient: "linear-gradient(135deg,#B0195C,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=MVmPv1dS6no&list=PLV8U2ls1d3amibuUTwOtYJuw2pX3722V9" },
-      { category: "tv-programs",     featured: true, title: "أنشودة ميزنا الله | تصوير", desc: "تنفيذ التصوير لأنشودة "ميزنا الله" بأسلوب بصري يعزز الرسالة ويبرز المشاهد بإخراج متناسق وجودة احترافية.",       gradient: "linear-gradient(135deg,#B0195C,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=MKKHxBMYhO8" }
+      { category: "tv-programs",     featured: true, title: "أنشودة ميزنا الله | تصوير", desc: "تنفيذ التصوير لأنشودة ميزنا الله بأسلوب بصري يعزز الرسالة ويبرز المشاهد بإخراج متناسق وجودة احترافية.",       gradient: "linear-gradient(135deg,#B0195C,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=MKKHxBMYhO8" }
 
 
      

@@ -50,79 +50,70 @@ const siteContent = {
 
   // -------- الأعمال / المعرض --------
   // category: لازم تطابق أحد قيم slug في مصفوفة services بالأعلى — بيها يتحدد في أي صفحة قسم يظهر هذا العمل
-  // لون التدرّج يتحكم في خلفية الصورة المصغّرة (يُستخدم فقط إن لم تتوفر صورة مصغّرة حقيقية من رابط يوتيوب صالح)
-  // videoLink: ضع هنا رابط فيديو يوتيوب — الفيديو يشتغل مباشرة داخل الكرت نفسه عند الضغط عليه، بدون نافذة منبثقة
-  // -------- الأعمال / المعرض --------
-  // category: لازم تطابق أحد قيم slug في مصفوفة services بالأعلى — بيها يتحدد في أي صفحة قسم يظهر هذا العمل
-  // featured: true → يظهر في "شاهد أعمالي" بالصفحة الرئيسية (اجعلها true لأفضل 6-8 أعمال فقط، كواجهة مختارة)
-  // كل عمل يظهر دائمًا في صفحة قسمه بـ works.html بغض النظر عن featured — القيمة دي فقط تتحكم بالصفحة الرئيسية
-  // لون التدرّج يتحكم في خلفية الصورة المصغّرة (يُستخدم فقط إن لم تتوفر صورة مصغّرة حقيقية من رابط يوتيوب صالح)
-  // videoLink: ضع هنا رابط فيديو يوتيوب — الفيديو يشتغل مباشرة داخل نافذة منبثقة عند الضغط على الكرت
+  // featured: true → يظهر في "شاهد أعمالي" بالصفحة الرئيسية (الصفحة الرئيسية تعرض أول 8 فقط، بحد أقصى)
+  // تنبيه: راجع رسالتي — كل الأعمال حاليًا featured:true، ما يخلي تنوع الأقسام يظهر بالرئيسية
+  // كل عمل يظهر دائمًا في صفحة قسمه بـ works.html بغض النظر عن featured
+  // videoLink: يدعم روابط الفيديو العادية، وأيضًا روابط قوائم التشغيل (playlist)
   work: [
     { category: "drone",           featured: true, title: "تصوير عقاري بالدرون",  desc: "توثيق جوي لمشروع مستودعات.",              gradient: "linear-gradient(135deg,#9F1F63,#0E0E10)", videoLink: "https://youtu.be/CDRoJKS6KUc" },
- { category: "drone",           featured: true, title: "تصوير عقاري بالدرون",  desc: "توثيق اعلان لإستراحة للبيع.",              gradient: "linear-gradient(135deg,#9F1F63,#0E0E10)", videoLink: "https://youtu.be/pBSVYD4oJXM" },
-{ category: "drone",           featured: true, title: "برنامج خريف حوف | تصوير جوي بالدرون",  desc: "برنامج خريف حوف، يوثق المشاهد الطبيعية الخلابة من منظور جوي يبرز جمال المكان وتفاصيله.",              gradient: "linear-gradient(135deg,#9F1F63,#0E0E10)", videoLink: "https://www.youtube.com/playlist?list=PLV8U2ls1d3am7iptTHoC69i4fZz4PYirH" },
-     { category: "drone",           featured: true, title: "على خطى المحضار | تصوير جوي بالدرون",  desc: "عمل يوثق المسيرة الفنية للفنان حسين أبو بكر المحضار، من خلال لقطات جوية استعرضت أبرز المناطق التي تغنى بها وألهمت أعماله.",              gradient: "linear-gradient(135deg,#9F1F63,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=4D01Br4q8ZY&list=PLZz0Fdf56G7RMz39OW8DYBDI7e0ew5cSy&index=8" },
-     { category: "drone",           featured: true, title: "برنامج نجم البدلة | تصوير جوي بالدرون",  desc: "عمل يوثق سواحل حضرموت بلقطات جوية احترافية، ويستعرض التجارب السياحية والحياة اليومية للسكان.",              gradient: "linear-gradient(135deg,#9F1F63,#0E0E10)", videoLink: "https://youtu.be/pBSVYD4oJXM" },
-     { category: "drone",           featured: true, title: "إعلان قاعة أفراح | التصوير السينمائي",  desc: "تنفيذ تصوير احترافي لإعلان ترويجي يبرز هوية القاعة، تفاصيلها، والأجواء المميزة للمناسبات.",              gradient: "linear-gradient(135deg,#9F1F63,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=jRrol528fCQ" },
-     
-     
+    { category: "drone",           featured: true, title: "تصوير عقاري بالدرون",  desc: "توثيق اعلان لإستراحة للبيع.",              gradient: "linear-gradient(135deg,#9F1F63,#0E0E10)", videoLink: "https://youtu.be/pBSVYD4oJXM" },
+    { category: "drone",           featured: true, title: "برنامج خريف حوف | تصوير جوي بالدرون",  desc: "برنامج خريف حوف، يوثق المشاهد الطبيعية الخلابة من منظور جوي يبرز جمال المكان وتفاصيله.",              gradient: "linear-gradient(135deg,#9F1F63,#0E0E10)", videoLink: "https://www.youtube.com/playlist?list=PLV8U2ls1d3am7iptTHoC69i4fZz4PYirH" },
+    { category: "drone",           featured: true, title: "على خطى المحضار | تصوير جوي بالدرون",  desc: "عمل يوثق المسيرة الفنية للفنان حسين أبو بكر المحضار، من خلال لقطات جوية استعرضت أبرز المناطق التي تغنى بها وألهمت أعماله.",              gradient: "linear-gradient(135deg,#9F1F63,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=4D01Br4q8ZY&list=PLZz0Fdf56G7RMz39OW8DYBDI7e0ew5cSy&index=8" },
+    { category: "drone",           featured: true, title: "برنامج نجم البدلة | تصوير جوي بالدرون",  desc: "عمل يوثق سواحل حضرموت بلقطات جوية احترافية، ويستعرض التجارب السياحية والحياة اليومية للسكان.",              gradient: "linear-gradient(135deg,#9F1F63,#0E0E10)", videoLink: "https://youtu.be/pBSVYD4oJXM" },
+    { category: "drone",           featured: true, title: "إعلان قاعة أفراح | التصوير السينمائي",  desc: "تنفيذ تصوير احترافي لإعلان ترويجي يبرز هوية القاعة، تفاصيلها، والأجواء المميزة للمناسبات.",              gradient: "linear-gradient(135deg,#9F1F63,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=jRrol528fCQ" },
+
     { category: "montage",         featured: true, title: "الذاكرة الحضرمية | مونتاج",         desc: "مونتاج برنامج يوثق العادات والتقاليد الحضرمية في رمضان، ويبرز الموروث الثقافي بأسلوب بصري متناسق وجذاب.",      gradient: "linear-gradient(135deg,#D91B5C,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=4Tg4lNx5Fi0" },
-      { category: "montage",         featured: true, title: "قصة نجاح | براند حواج",         desc: "مونتاج تقرير يوثق قصة نجاح براند حواج، بأسلوب بصري يبرز رحلة العلامة التجارية، وإنجازاتها، وتأثيرها في السوق.",      gradient: "linear-gradient(135deg,#D91B5C,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=iq0DZSrf1vo" },
-     
+    { category: "montage",         featured: true, title: "قصة نجاح | براند حواج",         desc: "مونتاج تقرير يوثق قصة نجاح براند حواج، بأسلوب بصري يبرز رحلة العلامة التجارية، وإنجازاتها، وتأثيرها في السوق.",      gradient: "linear-gradient(135deg,#D91B5C,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=iq0DZSrf1vo" },
+
     { category: "real-estate",     featured: true, title: "جولة عقارية كاملة",    desc: "تغطية شاملة لوحدة سكنية من الداخل والخارج.", gradient: "linear-gradient(135deg,#7A1F4F,#0E0E10)", videoLink: "https://youtu.be/vWaPPHRjxgg" },
-         { category: "real-estate",     featured: true, title: "إعلان للإيجار | تصوير ومونتاج",    desc: "تصوير ومونتاج إعلان احترافي يبرز مميزات المستودعات وجاهزيتها للإيجار.", gradient: "linear-gradient(135deg,#7A1F4F,#0E0E10)", videoLink: "https://youtu.be/xrvaOONTjOg" },
-     
-    { category: "logo-animation",  featured: true, title: "تحريك شعار | أستديو مسهور (الإصدار الأول)",          desc: "تنفيذ موشن جرافيك لشعار أستديو مسهور بأسلوب احترافي يعكس هوية البرنامج ويمنحه حضورًا بصريًا مميزًا..",        gradient: "linear-gradient(135deg,#7A1750,#0E0E10)", videoLink: "https://youtu.be/l5TJtVsIVoI" },
-         { category: "logo-animation",  featured: true, title: "تحريك شعار | برنامج أستديو (الإصدار الثاني)",          desc: "نسخة حديثة لتحريك شعار أستديو مسهور، بتصميم حركي مختلف يواكب هوية البرنامج ويضيف لمسة بصرية متجددة.",        gradient: "linear-gradient(135deg,#7A1750,#0E0E10)", videoLink: "https://youtu.be/T0qjO2n1MD4" },
-         { category: "logo-animation",  featured: true, title: "تحريك شعار | تلفزيون حضرموت",          desc: "تصميم وتنفيذ موشن جرافيك لشعار تلفزيون حضرموت، بأسلوب احترافي يعزز الهوية البصرية ويمنح الشعار حركة عصرية وجذابة.",        gradient: "linear-gradient(135deg,#7A1750,#0E0E10)", videoLink: "https://youtu.be/gzU9MwPhWoI" },
-     
+    { category: "real-estate",     featured: true, title: "إعلان للإيجار | تصوير ومونتاج",    desc: "تصوير ومونتاج إعلان احترافي يبرز مميزات المستودعات وجاهزيتها للإيجار.", gradient: "linear-gradient(135deg,#7A1F4F,#0E0E10)", videoLink: "https://youtu.be/xrvaOONTjOg" },
+
+    { category: "logo-animation",  featured: true, title: "تحريك شعار | أستديو مسهور (الإصدار الأول)",          desc: "تنفيذ موشن جرافيك لشعار أستديو مسهور بأسلوب احترافي يعكس هوية البرنامج ويمنحه حضورًا بصريًا مميزًا.",        gradient: "linear-gradient(135deg,#7A1750,#0E0E10)", videoLink: "https://youtu.be/l5TJtVsIVoI" },
+    { category: "logo-animation",  featured: true, title: "تحريك شعار | برنامج أستديو (الإصدار الثاني)",          desc: "نسخة حديثة لتحريك شعار أستديو مسهور، بتصميم حركي مختلف يواكب هوية البرنامج ويضيف لمسة بصرية متجددة.",        gradient: "linear-gradient(135deg,#7A1750,#0E0E10)", videoLink: "https://youtu.be/T0qjO2n1MD4" },
+    { category: "logo-animation",  featured: true, title: "تحريك شعار | تلفزيون حضرموت",          desc: "تصميم وتنفيذ موشن جرافيك لشعار تلفزيون حضرموت، بأسلوب احترافي يعزز الهوية البصرية ويمنح الشعار حركة عصرية وجذابة.",        gradient: "linear-gradient(135deg,#7A1750,#0E0E10)", videoLink: "https://youtu.be/gzU9MwPhWoI" },
+
     { category: "tv-programs",     featured: true, title: "برنامج أرياف | تصوير", desc: "تصوير سلسلة وثائقية من 10 حلقات تستعرض أرياف ساحل حضرموت، وتبرز جمال الطبيعة والحياة الريفية.",       gradient: "linear-gradient(135deg,#B0195C,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=MVmPv1dS6no&list=PLV8U2ls1d3amibuUTwOtYJuw2pX3722V9" },
-      { category: "tv-programs",     featured: true, title: "أنشودة ميزنا الله | تصوير", desc: "تنفيذ التصوير لأنشودة ميزنا الله بأسلوب بصري يعزز الرسالة ويبرز المشاهد بإخراج متناسق وجودة احترافية.",       gradient: "linear-gradient(135deg,#B0195C,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=MKKHxBMYhO8" }
-
-
-     
+    { category: "tv-programs",     featured: true, title: "أنشودة ميزنا الله | تصوير", desc: "تنفيذ التصوير لأنشودة «ميزنا الله» بأسلوب بصري يعزز الرسالة ويبرز المشاهد بإخراج متناسق وجودة احترافية.",       gradient: "linear-gradient(135deg,#B0195C,#0E0E10)", videoLink: "https://www.youtube.com/watch?v=MKKHxBMYhO8" }
   ],
 
   // -------- العملاء --------
-  // ضع اسم العميل الحقيقي وشعاره في مجلد images/clients/ ثم عدّل مسار logo هنا
-  // الشعارات تظهر بتدرج رمادي وتتحول لألوانها الحقيقية عند تمرير الفأرة (تأثير معاصر شائع)
+  // تنبيه: تأكد من رفع 35 ملف بنفس هذه الأسماء بالظبط (1.png إلى 35.png) داخل images/clients/
   clients: [
-   { name: "عميل 01", logo: "images/clients/1.png" },
-{ name: "عميل 02", logo: "images/clients/2.png" },
-{ name: "عميل 03", logo: "images/clients/3.png" },
-{ name: "عميل 04", logo: "images/clients/4.png" },
-{ name: "عميل 05", logo: "images/clients/5.png" },
-{ name: "عميل 06", logo: "images/clients/6.png" },
-{ name: "عميل 07", logo: "images/clients/7.png" },
-{ name: "عميل 08", logo: "images/clients/8.png" },
-{ name: "عميل 09", logo: "images/clients/9.png" },
-{ name: "عميل 10", logo: "images/clients/10.png" },
-{ name: "عميل 11", logo: "images/clients/11.png" },
-{ name: "عميل 12", logo: "images/clients/12.png" },
-{ name: "عميل 13", logo: "images/clients/13.png" },
-{ name: "عميل 14", logo: "images/clients/14.png" },
-{ name: "عميل 15", logo: "images/clients/15.png" },
-{ name: "عميل 16", logo: "images/clients/16.png" },
-{ name: "عميل 17", logo: "images/clients/17.png" },
-{ name: "عميل 18", logo: "images/clients/18.png" },
-{ name: "عميل 19", logo: "images/clients/19.png" },
-{ name: "عميل 20", logo: "images/clients/20.png" },
-{ name: "عميل 21", logo: "images/clients/21.png" },
-{ name: "عميل 22", logo: "images/clients/22.png" },
-{ name: "عميل 23", logo: "images/clients/23.png" },
-{ name: "عميل 24", logo: "images/clients/24.png" },
-{ name: "عميل 25", logo: "images/clients/25.png" },
-{ name: "عميل 26", logo: "images/clients/26.png" },
-{ name: "عميل 27", logo: "images/clients/27.png" },
-{ name: "عميل 28", logo: "images/clients/28.png" },
-{ name: "عميل 29", logo: "images/clients/29.png" },
-{ name: "عميل 30", logo: "images/clients/30.png" },
-{ name: "عميل 31", logo: "images/clients/31.png" },
-{ name: "عميل 32", logo: "images/clients/32.png" },
-{ name: "عميل 33", logo: "images/clients/33.png" },
-{ name: "عميل 34", logo: "images/clients/34.png" },
-{ name: "عميل 35", logo: "images/clients/35.png" }
+    { name: "عميل 01", logo: "images/clients/1.png" },
+    { name: "عميل 02", logo: "images/clients/2.png" },
+    { name: "عميل 03", logo: "images/clients/3.png" },
+    { name: "عميل 04", logo: "images/clients/4.png" },
+    { name: "عميل 05", logo: "images/clients/5.png" },
+    { name: "عميل 06", logo: "images/clients/6.png" },
+    { name: "عميل 07", logo: "images/clients/7.png" },
+    { name: "عميل 08", logo: "images/clients/8.png" },
+    { name: "عميل 09", logo: "images/clients/9.png" },
+    { name: "عميل 10", logo: "images/clients/10.png" },
+    { name: "عميل 11", logo: "images/clients/11.png" },
+    { name: "عميل 12", logo: "images/clients/12.png" },
+    { name: "عميل 13", logo: "images/clients/13.png" },
+    { name: "عميل 14", logo: "images/clients/14.png" },
+    { name: "عميل 15", logo: "images/clients/15.png" },
+    { name: "عميل 16", logo: "images/clients/16.png" },
+    { name: "عميل 17", logo: "images/clients/17.png" },
+    { name: "عميل 18", logo: "images/clients/18.png" },
+    { name: "عميل 19", logo: "images/clients/19.png" },
+    { name: "عميل 20", logo: "images/clients/20.png" },
+    { name: "عميل 21", logo: "images/clients/21.png" },
+    { name: "عميل 22", logo: "images/clients/22.png" },
+    { name: "عميل 23", logo: "images/clients/23.png" },
+    { name: "عميل 24", logo: "images/clients/24.png" },
+    { name: "عميل 25", logo: "images/clients/25.png" },
+    { name: "عميل 26", logo: "images/clients/26.png" },
+    { name: "عميل 27", logo: "images/clients/27.png" },
+    { name: "عميل 28", logo: "images/clients/28.png" },
+    { name: "عميل 29", logo: "images/clients/29.png" },
+    { name: "عميل 30", logo: "images/clients/30.png" },
+    { name: "عميل 31", logo: "images/clients/31.png" },
+    { name: "عميل 32", logo: "images/clients/32.png" },
+    { name: "عميل 33", logo: "images/clients/33.png" },
+    { name: "عميل 34", logo: "images/clients/34.png" },
+    { name: "عميل 35", logo: "images/clients/35.png" }
   ],
 
   // -------- تواصل --------
@@ -131,12 +122,14 @@ const siteContent = {
   whatsappLink: "https://wa.me/966510798388",
 
   // -------- الفوتر --------
+  // تنبيه: صححت الصفر الزائد هنا ليطابق رقم واتساب أعلاه بالظبط — راجع رسالتي
   footerTagline: "مصور درون ومونتير، متخصص في الإنتاج العقاري والتصميم الجرافيكي.",
-  phoneDisplay: "+9660510798388",
+  phoneDisplay: "+966 51 079 8388",
   email: "snb135@hotmail.com",
   emailLink: "mailto:snb135@hotmail.com",
 
   // روابط السوشيال ميديا — اترك أي رابط فارغًا "" إن لم ترغب بظهور أيقونته
+  // تنبيه: linkedin و facebook لسه placeholder — راجع رسالتي
   socials: {
     linkedin: "https://linkedin.com/in/username",
     instagram: "https://instagram.com/s.n.b1",
@@ -147,15 +140,11 @@ const siteContent = {
   },
 
   // -------- صفحة "تصميم جرافيك" — أسلوب تحريري مستقل (مستوحى من vanschneider.com) --------
-  // هذه الصفحة (graphic-design.html) مختلفة عن باقي صفحات الأقسام، ومخصّصة لعرض أعمال التصميم
-  // الجرافيكي بأسلوب مجلة/معرض بدل شبكة الفيديوهات المعتادة
   graphicDesignPage: {
     eyebrow: "استوديو التصميم",
     statement: "أصمم؛ إذن أنا موجود",
     subStatement: "تصميم جرافيك — منذ 2015",
     intro: "أنا سعيد ناصر، إلى جانب الفيديو والدرون، أصمم هويات بصرية ومطبوعات ومحتوى جرافيكي يحمل بصمة واضحة. هذا النص Placeholder — عدّله من content.js ليحكي أسلوبك الخاص في التصميم.",
-
-    // كل مشروع = قسم كامل بمعرض أفقي قابل للتمرير، يشبه أسلوب دراسات الحالة في المواقع العالمية
     projects: [
       {
         title: "هوية بصرية — مشروع 01",
@@ -179,8 +168,6 @@ const siteContent = {
         ]
       }
     ],
-
-    // شذرات/أعمال سريعة بأسلوب "القطع الفنية" — شبكة صغيرة متنوعة أسفل الصفحة
     artifacts: [
       { icon: "🎨", caption: "شعار مطبوع بأسلوب تجريبي." },
       { icon: "📐", caption: "استكشاف بصري لهوية غير منشورة." },
@@ -189,7 +176,6 @@ const siteContent = {
       { icon: "🏷️", caption: "بطاقة عمل مصمَّمة يدويًا." },
       { icon: "🖼️", caption: "ملصق لأحد الفعاليات." }
     ],
-
     closing: "شكرًا لزيارة هذا الجزء من أعمالي."
   }
 };

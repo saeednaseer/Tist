@@ -162,7 +162,7 @@ const siteContent = {
         tags: "تصميم إعلانات، طباعة",
         desc: "وصف مختصر يشرح فكرة المشروع والحل البصري الذي قدّمته. عدّل هذا النص والصور من content.js.",
         gallery: [
-          "linear-gradient(135deg,#F7941E,#1a0d14)",
+          "url('images/clients/1.png')",
           "linear-gradient(135deg,#9F1F63,#1a0d14)",
           "linear-gradient(135deg,#D91B5C,#1a0d14)"
         ]
